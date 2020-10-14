@@ -1,3 +1,4 @@
+#include "MyForm1.h";
 #pragma once
 
 namespace Proyecto1HansSempe1083920 {
@@ -43,23 +44,15 @@ namespace Proyecto1HansSempe1083920 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::DataGridView^ dgvMatriz;
-	protected:
-
-	private: System::Windows::Forms::Button^ CrearMatriz;
-	private: System::Windows::Forms::TextBox^ filas;
-	private: System::Windows::Forms::TextBox^ columnas;
-
-
-
-	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Button^ importarDatos;
-	private: System::Windows::Forms::TextBox^ txtPath;
-
-
-	private: System::Windows::Forms::OpenFileDialog^ ofdImportar;
 	protected:
+	private: System::Windows::Forms::Button^ SeguirD;
+	private: System::Windows::Forms::Button^ SeguirM;
+	private: System::Windows::Forms::Button^ SeguirF;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Button^ NuevoD;
+	private: System::Windows::Forms::Button^ NuevoM;
+	private: System::Windows::Forms::Button^ NuevoF;
 
 	private:
 		/// <summary>
@@ -74,248 +67,151 @@ namespace Proyecto1HansSempe1083920 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->dgvMatriz = (gcnew System::Windows::Forms::DataGridView());
-			this->CrearMatriz = (gcnew System::Windows::Forms::Button());
-			this->filas = (gcnew System::Windows::Forms::TextBox());
-			this->columnas = (gcnew System::Windows::Forms::TextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->importarDatos = (gcnew System::Windows::Forms::Button());
-			this->txtPath = (gcnew System::Windows::Forms::TextBox());
-			this->ofdImportar = (gcnew System::Windows::Forms::OpenFileDialog());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvMatriz))->BeginInit();
+			this->SeguirD = (gcnew System::Windows::Forms::Button());
+			this->SeguirM = (gcnew System::Windows::Forms::Button());
+			this->SeguirF = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->NuevoD = (gcnew System::Windows::Forms::Button());
+			this->NuevoM = (gcnew System::Windows::Forms::Button());
+			this->NuevoF = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
-			// 
-			// dgvMatriz
-			// 
-			this->dgvMatriz->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvMatriz->Location = System::Drawing::Point(12, 74);
-			this->dgvMatriz->Name = L"dgvMatriz";
-			this->dgvMatriz->Size = System::Drawing::Size(596, 318);
-			this->dgvMatriz->TabIndex = 0;
-			// 
-			// CrearMatriz
-			// 
-			this->CrearMatriz->Font = (gcnew System::Drawing::Font(L"Arial Black", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->CrearMatriz->Location = System::Drawing::Point(12, 12);
-			this->CrearMatriz->Name = L"CrearMatriz";
-			this->CrearMatriz->Size = System::Drawing::Size(182, 46);
-			this->CrearMatriz->TabIndex = 1;
-			this->CrearMatriz->Text = L"Preparar Matriz";
-			this->CrearMatriz->UseVisualStyleBackColor = true;
-			this->CrearMatriz->Click += gcnew System::EventHandler(this, &MyForm::CrearMatriz_Click);
-			// 
-			// filas
-			// 
-			this->filas->Location = System::Drawing::Point(200, 12);
-			this->filas->Name = L"filas";
-			this->filas->Size = System::Drawing::Size(100, 20);
-			this->filas->TabIndex = 2;
-			// 
-			// columnas
-			// 
-			this->columnas->Location = System::Drawing::Point(200, 38);
-			this->columnas->Name = L"columnas";
-			this->columnas->Size = System::Drawing::Size(100, 20);
-			this->columnas->TabIndex = 3;
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(306, 17);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(42, 16);
-			this->label1->TabIndex = 4;
-			this->label1->Text = L"Filas";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(306, 42);
+			this->label2->Location = System::Drawing::Point(290, 9);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(76, 16);
-			this->label2->TabIndex = 5;
-			this->label2->Text = L"Columnas";
+			this->label2->Size = System::Drawing::Size(177, 32);
+			this->label2->TabIndex = 17;
+			this->label2->Text = L"Seguir Juego";
 			// 
-			// importarDatos
+			// SeguirD
 			// 
-			this->importarDatos->Font = (gcnew System::Drawing::Font(L"Arial Black", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->SeguirD->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->importarDatos->Location = System::Drawing::Point(426, 12);
-			this->importarDatos->Name = L"importarDatos";
-			this->importarDatos->Size = System::Drawing::Size(182, 46);
-			this->importarDatos->TabIndex = 6;
-			this->importarDatos->Text = L"Importar Datos";
-			this->importarDatos->UseVisualStyleBackColor = true;
-			this->importarDatos->Click += gcnew System::EventHandler(this, &MyForm::importarDatos_Click);
+			this->SeguirD->Location = System::Drawing::Point(277, 137);
+			this->SeguirD->Name = L"SeguirD";
+			this->SeguirD->Size = System::Drawing::Size(209, 38);
+			this->SeguirD->TabIndex = 16;
+			this->SeguirD->Text = L"Difícil";
+			this->SeguirD->UseVisualStyleBackColor = true;
 			// 
-			// txtPath
+			// SeguirM
 			// 
-			this->txtPath->Location = System::Drawing::Point(614, 28);
-			this->txtPath->Name = L"txtPath";
-			this->txtPath->Size = System::Drawing::Size(218, 20);
-			this->txtPath->TabIndex = 7;
+			this->SeguirM->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->SeguirM->Location = System::Drawing::Point(277, 93);
+			this->SeguirM->Name = L"SeguirM";
+			this->SeguirM->Size = System::Drawing::Size(209, 38);
+			this->SeguirM->TabIndex = 15;
+			this->SeguirM->Text = L"Medio";
+			this->SeguirM->UseVisualStyleBackColor = true;
 			// 
-			// ofdImportar
+			// SeguirF
 			// 
-			this->ofdImportar->FileName = L"openFileDialog1";
+			this->SeguirF->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->SeguirF->Location = System::Drawing::Point(277, 49);
+			this->SeguirF->Name = L"SeguirF";
+			this->SeguirF->Size = System::Drawing::Size(209, 38);
+			this->SeguirF->TabIndex = 14;
+			this->SeguirF->Text = L"Fácil";
+			this->SeguirF->UseVisualStyleBackColor = true;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(31, 9);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(177, 32);
+			this->label1->TabIndex = 13;
+			this->label1->Text = L"Juego Nuevo";
+			// 
+			// NuevoD
+			// 
+			this->NuevoD->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->NuevoD->Location = System::Drawing::Point(12, 137);
+			this->NuevoD->Name = L"NuevoD";
+			this->NuevoD->Size = System::Drawing::Size(209, 38);
+			this->NuevoD->TabIndex = 12;
+			this->NuevoD->Text = L"Difícil";
+			this->NuevoD->UseVisualStyleBackColor = true;
+			this->NuevoD->Click += gcnew System::EventHandler(this, &MyForm::NuevoD_Click_1);
+			// 
+			// NuevoM
+			// 
+			this->NuevoM->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->NuevoM->Location = System::Drawing::Point(12, 93);
+			this->NuevoM->Name = L"NuevoM";
+			this->NuevoM->Size = System::Drawing::Size(209, 38);
+			this->NuevoM->TabIndex = 11;
+			this->NuevoM->Text = L"Medio";
+			this->NuevoM->UseVisualStyleBackColor = true;
+			this->NuevoM->Click += gcnew System::EventHandler(this, &MyForm::NuevoM_Click_1);
+			// 
+			// NuevoF
+			// 
+			this->NuevoF->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->NuevoF->Location = System::Drawing::Point(12, 49);
+			this->NuevoF->Name = L"NuevoF";
+			this->NuevoF->Size = System::Drawing::Size(209, 38);
+			this->NuevoF->TabIndex = 10;
+			this->NuevoF->Text = L"Fácil";
+			this->NuevoF->UseVisualStyleBackColor = true;
+			this->NuevoF->Click += gcnew System::EventHandler(this, &MyForm::NuevoF_Click_1);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(840, 404);
-			this->Controls->Add(this->txtPath);
-			this->Controls->Add(this->importarDatos);
+			this->ClientSize = System::Drawing::Size(496, 187);
 			this->Controls->Add(this->label2);
+			this->Controls->Add(this->SeguirD);
+			this->Controls->Add(this->SeguirM);
+			this->Controls->Add(this->SeguirF);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->columnas);
-			this->Controls->Add(this->filas);
-			this->Controls->Add(this->CrearMatriz);
-			this->Controls->Add(this->dgvMatriz);
+			this->Controls->Add(this->NuevoD);
+			this->Controls->Add(this->NuevoM);
+			this->Controls->Add(this->NuevoF);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvMatriz))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 
-		void agregarPila(Nodo*&, int);
-		void sacarPila(Nodo*&, int&);
-		int numCalif, * calif;
-		int dato;
 
 #pragma endregion
 
-		private: void ReestablecerMatriz() {
-			dgvMatriz->Rows->Clear();
-			dgvMatriz->Columns->Clear();
-			dgvMatriz->ColumnHeadersVisible = false;
-			dgvMatriz->RowHeadersVisible = false;
-		};
 
-		private: System::Void importarDatos_Click(System::Object^ sender, System::EventArgs^ e) {
-
-			//Se agregan los filtros al OpenFileDialog
-			ofdImportar->Filter = "Archivos separados por coma (csv) | *.csv";
-			ofdImportar->FileName = "";
-
-			//Unicamnte si el reultado de la apertura del archivo es exitosa se carga el archivo
-			if (ofdImportar->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
-				ReestablecerMatriz(); //Se elimina cualquier contenido de la matriz
-				txtPath->Text = ofdImportar->FileName;
-
-				//Se utiliza el objeto File para leer el archivo solo cuando el FileName es correcto
-				//Importante haber llamado al namespace System::IO antes de usar File
-				array<String^>^ archivoLineas = File::ReadAllLines(ofdImportar->FileName);
-
-				if (archivoLineas->Length > 0) {
-
-					//Obtiene la cantidad de elementos de la primer linea y ese toma como cantidad de columnas
-					array<String^>^ archivoColumna = archivoLineas[0]->Split(',');
-					if (archivoColumna->Length > 0) {
-						int cantidadColumnas = archivoColumna->Length;
-
-						//Agrega las columnas
-						for (int i = 0; i < cantidadColumnas; i++) {
-							//Crea una columna
-							DataGridViewColumn^ nuevacolumna = gcnew DataGridViewColumn();
-							nuevacolumna->Width = 20;
-							//Le agrega el tipo de columna que será
-							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
-							nuevacolumna->CellTemplate = cellTemplate;
-							//Inserta la columna
-							dgvMatriz->Columns->Add(nuevacolumna);
-						}
-
-						//Agrega las filas de manera dinámica
-						for (int i = 0; i < archivoLineas->Length; i++) {
-							dgvMatriz->Rows->Add();
-						}
-
-						//Llena el DatagridView
-						for (int i = 0; i < archivoLineas->Length; i++) {
-							array<String^>^ fila = archivoLineas[i]->Split(',');
-							int j = 0;
-
-							//Si alguna fila tiene más o menos objetos no afecta al funcionamiento ya que utiliza la cantidad de elementos de la primer fila
-							while ((j < cantidadColumnas) && (j < fila->Length)) {
-								dgvMatriz->Rows[i]->Cells[j]->Value = fila[j];
-								j++;
-							}
-						}
-					}
-				}
-
-			}
-			else {
-				// Si no se selecciona correctamente un elemento entonces falla
-				MessageBox::Show("No se seleccionó ningún archivo"
-					, "Archivo no seleccionado"
-					, MessageBoxButtons::OK
-					, MessageBoxIcon::Exclamation);
-			}
-
-		}
+	private: System::Void NuevoF_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		MyForm1^ miNuevaVentana = gcnew MyForm1();
+		miNuevaVentana->ShowDialog();
+	}
 
 
-
-
-
-
-
-
-
-
-
-		private: System::Void CrearMatriz_Click(System::Object^ sender, System::EventArgs^ e) {
-
-			dgvMatriz->ColumnHeadersVisible = false;
-			dgvMatriz->RowHeadersVisible = false;
-
-			int Num_Fila = Convert::ToInt32(filas->Text);
-			
-			int Num_Columns = Convert::ToInt32(columnas->Text);
-
-			for (int i = 0; i < Num_Columns; i++) {
-
-				DataGridViewColumn^ nuevacolumna = gcnew DataGridViewColumn();
-				nuevacolumna->Width = 20;
-
-				DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
-				nuevacolumna->CellTemplate = cellTemplate;
-
-				dgvMatriz->Columns->Add(nuevacolumna);
-			}
-
-			for (int i = 1; i < Num_Fila; i++) {
-
-				dgvMatriz->Rows->Add();
-			}
-
-		}
-
-		void agregarPila(Nodo*& pila, int n) {
-			Nodo* nuevo_nodo = new Nodo();
-			nuevo_nodo->dato = n;
-			nuevo_nodo->siguiente = pila;
-			pila = nuevo_nodo;
-			//cout << "\Elemento " << n << " ha sido agregado a PILA correctamente";
-		}
-
-		void sacarPila(Nodo*& pila, int& n) {
-			Nodo* aux = pila;
-			n = aux->dato;
-			pila = aux->siguiente;
-			delete aux;
-		}
-		
 	
+	private: System::Void NuevoM_Click_1(System::Object^ sender, System::EventArgs^ e) {
+
+
+	}
+
+
+
+	private: System::Void NuevoD_Click_1(System::Object^ sender, System::EventArgs^ e) {
+
+
+	}
+
+
+
 };
 }
