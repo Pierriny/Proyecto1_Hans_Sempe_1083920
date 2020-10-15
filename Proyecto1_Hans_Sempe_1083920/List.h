@@ -8,16 +8,16 @@ class List
 	int count;
 
 	List();
-	void InsertAtStart(int value);
-	void InsertAtEnd(int value);
-	void InsertAtPosition(int value, int position);
+	void InsertAtStart(char value);
+	void InsertAtEnd(char value);
+	void InsertAtPosition(char value, int position);
 	Node* ExtractAtStart();
 	Node* ExtractAtEnd();
 	Node* ExtractAtPosition(int position);
-	Node* GetNode(int value);
+	Node* GetNode(char value);
 	//string GetValue(int position);
 	bool isEmpty();
-	void suprimirCola(Node*& frente, Node *&fin,int value);
+	void suprimirCola(Node*& frente, Node *&fin,char value);
 	~List() {};
 };
 

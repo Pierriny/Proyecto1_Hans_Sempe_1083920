@@ -70,6 +70,7 @@ namespace Proyecto1HansSempe1083920 {
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::SaveFileDialog^ sfdExportar;
 
 
 	protected:
@@ -113,6 +114,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->sfdExportar = (gcnew System::Windows::Forms::SaveFileDialog());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvMatriz))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -238,6 +240,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->MoverColas->TabIndex = 27;
 			this->MoverColas->Text = L"Mover";
 			this->MoverColas->UseVisualStyleBackColor = true;
+			this->MoverColas->Click += gcnew System::EventHandler(this, &MyForm1::MoverColas_Click);
 			// 
 			// label3
 			// 
@@ -260,6 +263,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->GuardarJuego->TabIndex = 29;
 			this->GuardarJuego->Text = L"Guardar";
 			this->GuardarJuego->UseVisualStyleBackColor = true;
+			this->GuardarJuego->Click += gcnew System::EventHandler(this, &MyForm1::GuardarJuego_Click);
 			// 
 			// label4
 			// 
@@ -540,9 +544,51 @@ namespace Proyecto1HansSempe1083920 {
 		}
 		
 		
+		private: System::Void MoverColas_Click(System::Object^ sender, System::EventArgs^ e) {
 
+		}
 		
+		private: System::Void GuardarJuego_Click(System::Object^ sender, System::EventArgs^ e) {
 
+			if ((dgvMatriz->Columns->Count > 0) && (dgvMatriz->Rows->Count > 0)) {
+				sfdExportar->Filter = "Archivos separados por coma (txt) | *.txt";
+				if (sfdExportar->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+
+					//Guardo el contenido del DataGridView en una sola cadena
+					String^ linea = "";
+					for (int i = 0; i < dgvMatriz->Rows->Count; i++) {
+						for (int j = 0; j < dgvMatriz->Columns->Count; j++) {
+							if (j == dgvMatriz->Columns->Count - 1)
+
+								linea += "" + dgvMatriz->Rows[i]->Cells[j]->Value + ",X,";
+							else
+								if (nullptr == dgvMatriz->Rows[i]->Cells[j]->Value)
+								{
+									linea += ""+"";
+								}
+								else {
+									linea += "" + dgvMatriz->Rows[i]->Cells[j]->Value + ",";
+								}						
+						}
+					}
+
+					//Utilizo el objeto System::IO::File para guardar el texto
+					//Importante haber llamado al namespace System::IO antes de usar File
+					File::WriteAllText(sfdExportar->FileName, linea);
+					MessageBox::Show("Archivo guardado exitosamente"
+						, "Operación exitosa"
+						, MessageBoxButtons::OK
+						, MessageBoxIcon::Information);
+				}
+				else {
+					MessageBox::Show("No se exportó el archivo"
+						, "Archivo no seleccionado"
+						, MessageBoxButtons::OK
+						, MessageBoxIcon::Exclamation);
+				}
+			}
+
+		}
 
 
 
@@ -551,5 +597,7 @@ namespace Proyecto1HansSempe1083920 {
 
 private: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
 }
+
+
 };
 }

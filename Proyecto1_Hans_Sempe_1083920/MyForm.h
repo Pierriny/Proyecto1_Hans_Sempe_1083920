@@ -1,4 +1,6 @@
 #include "MyForm1.h";
+#include "MyForm2.h";
+#include "MyForm3.h";
 #pragma once
 
 namespace Proyecto1HansSempe1083920 {
@@ -197,20 +199,17 @@ namespace Proyecto1HansSempe1083920 {
 		miNuevaVentana->ShowDialog();
 	}
 
-
 	
 	private: System::Void NuevoM_Click_1(System::Object^ sender, System::EventArgs^ e) {
-
-
+		MyForm2^ miNuevaVentana2 = gcnew MyForm2();
+		miNuevaVentana2->ShowDialog();
 	}
-
 
 
 	private: System::Void NuevoD_Click_1(System::Object^ sender, System::EventArgs^ e) {
-
-
+		MyForm3^ miNuevaVentana3 = gcnew MyForm3();
+		miNuevaVentana3->ShowDialog();
 	}
-
 
 
 };

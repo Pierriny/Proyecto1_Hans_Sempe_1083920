@@ -7,7 +7,7 @@ List::List() {
 };
 
 //Insert Operations
-void List::InsertAtStart(int value) {
+void List::InsertAtStart(char value) {
 	Node* new_node = new Node();
 	new_node->value = value;
 
@@ -22,7 +22,7 @@ void List::InsertAtStart(int value) {
 	count++;
 }
 
-void List::suprimirCola(Node*& frente, Node*& fin, int n) {
+void List::suprimirCola(Node*& frente, Node*& fin, char n) {
 	n = frente->value;
 	Node* aux = frente;
 
@@ -37,7 +37,7 @@ void List::suprimirCola(Node*& frente, Node*& fin, int n) {
 
 }
 
-void List::InsertAtEnd(int value) {
+void List::InsertAtEnd(char value) {
 	Node* new_node = new Node();
 	new_node->value = value;
 
@@ -52,7 +52,7 @@ void List::InsertAtEnd(int value) {
 	count++;
 }
 
-void List::InsertAtPosition(int value, int position) {
+void List::InsertAtPosition(char value, int position) {
 	Node* new_node = new Node();
 	new_node->value = value;
 
@@ -143,7 +143,7 @@ Node* List::ExtractAtPosition(int position) {
 }
 
 //Search operations
-Node* List::GetNode(int value) {
+Node* List::GetNode(char value) {
 	Node* temp = start;
 	while ((temp) && (temp->value != value)) {
 		temp = temp->next;

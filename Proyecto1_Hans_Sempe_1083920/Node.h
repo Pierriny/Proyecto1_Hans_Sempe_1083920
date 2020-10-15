@@ -2,7 +2,7 @@
 class Node
 {
 public:
-	int value;
+	char value;
 	Node* next;
 
 	Node();
