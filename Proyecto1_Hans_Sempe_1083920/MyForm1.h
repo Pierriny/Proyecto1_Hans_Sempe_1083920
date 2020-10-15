@@ -1,4 +1,5 @@
 #include "Node.h";
+#include "List.h";
 #pragma once
 
 namespace Proyecto1HansSempe1083920 {
@@ -17,6 +18,13 @@ namespace Proyecto1HansSempe1083920 {
 	public ref class MyForm1 : public System::Windows::Forms::Form
 	{
 	public:
+
+		List* miList;
+		List* milist2;
+		List* milist3;
+		List* milist4;
+
+
 		MyForm1(void)
 		{
 			InitializeComponent();
@@ -436,83 +444,530 @@ namespace Proyecto1HansSempe1083920 {
 		
 		private: System::Void importarDatos_Click_1(System::Object^ sender, System::EventArgs^ e) {
 			
-			//Se agregan los filtros al OpenFileDialog
-			ofdImportar->Filter = "Archivos separados por coma (txt) | *.txt";
-			ofdImportar->FileName = "";
+			////Se agregan los filtros al OpenFileDialog
+			//ofdImportar->Filter = "Archivos separados por coma (txt) | *.txt";
+			//ofdImportar->FileName = "";
 
-			//Unicamnte si el reultado de la apertura del archivo es exitosa se carga el archivo
-			if (ofdImportar->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
-				ReestablecerMatriz(); //Se elimina cualquier contenido de la matriz
-				txtPath->Text = ofdImportar->FileName;
+			////Unicamnte si el reultado de la apertura del archivo es exitosa se carga el archivo
+			//if (ofdImportar->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+			//	ReestablecerMatriz();
+			//	array<String^>^ archivo_game_Complete = File::ReadAllLines(ofdImportar->FileName);
 
-				//Se utiliza el objeto File para leer el archivo solo cuando el FileName es correcto
-				//Importante haber llamado al namespace System::IO antes de usar File
-				array<String^>^ archivoLineas = File::ReadAllLines(ofdImportar->FileName);
+			//	if (archivo_game_Complete->Length > 0)
+			//	{
+			//		array<String^>^ archivo_game_Line = archivo_game_Complete[0]->Split(',');
+			//		array<String^>^ archivo_game_Column = archivo_game_Complete[0]->Split('X');
 
-				if (archivoLineas->Length > 0) {
+			//		if (archivo_game_Line->Length > 0)
+			//		{
+			//			int cant_columnas = archivo_game_Column->Length;
 
-					//Obtiene la cantidad de elementos de la primer linea y ese toma como cantidad de columnas
-					
-					array<String^>^ archivoColumna = archivoLineas[0]->Split('X');
-					array<String^>^ archivoFilas = archivoLineas[0]->Split(',');
+			//			for (int i = 0; i < cant_columnas; i++)
+			//			{
+			//				DataGridViewColumn^ New_Column = gcnew DataGridViewColumn();
+			//				New_Column->Width = 30;
 
-					if (archivoColumna->Length > 0) {
+			//				DataGridViewCell^ Cell_Templete = gcnew DataGridViewTextBoxCell();
+			//				New_Column->CellTemplate = Cell_Templete;
 
-						int cantidadColumnas = archivoColumna->Length;
-						int cantidadFlias = archivoFilas->Length;
+			//				dgvMatriz->Columns->Add(New_Column);
+			//			}
 
-						//Agrega las columnas
-						for (int i = 0; i < cantidadColumnas; i++) {
-							//Crea una columna
-							DataGridViewColumn^ nuevacolumna = gcnew DataGridViewColumn();
-							nuevacolumna->Width = 20;
-							//Le agrega el tipo de columna que será
-							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
-							nuevacolumna->CellTemplate = cellTemplate;
-							//Inserta la columna
-							dgvMatriz->Columns->Add(nuevacolumna);
-						}
+			//			for (int i = 0; i < (archivo_game_Line->Length / archivo_game_Column->Length) - 1; i++)
+			//			{
+			//				dgvMatriz->Rows->Add();
+			//			}
 
-						//Agrega las filas de manera dinámica
-						for (int i = 0; i < cantidadFlias; i++) {
-							dgvMatriz->Rows->Add();
-						}
+			//			bool x_Salto = false;
+			//			for (int i = 1; i < archivo_game_Column->Length;)
+			//			{
+			//				int j;
+
+			//				for (j = 0; j < archivo_game_Line->Length; j++)
+			//				{
+			//					if (x_Salto == true)
+			//					{
+			//						i++;
+			//					}
+			//					if (i == 1)
+			//					{
+			//						int temp_Val;
+			//						if (archivo_game_Line[j] == "B")
+			//						{
+			//							temp_Val = 1;
+			//							miList->InsertAtStart1(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Z")
+			//						{
+			//							temp_Val = 2;
+			//							miList->Insert_First_G1(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "W")
+			//						{
+			//							temp_Val = 3;
+			//							miList->Insert_First_G1(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "R")
+			//						{
+			//							temp_Val = 4;
+			//							miList->Insert_First_G1(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Y")
+			//						{
+			//							temp_Val = 5;
+			//							miList->Insert_First_G1(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "G")
+			//						{
+			//							temp_Val = 6;
+			//							miList->Insert_First_G1(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "P")
+			//						{
+			//							temp_Val = 7;
+			//							miList->Insert_First_G1(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "N")
+			//						{
+			//							temp_Val = 8;
+			//							miList->Insert_First_G1(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "X")
+			//						{
+			//							x_Salto = true;
+			//						}
+
+			//					}
+			//					if (i == 2)
+			//					{
+			//						int temp_Val;
+			//						if (archivo_game_Line[j] == "B")
+			//						{
+			//							temp_Val = 1;
+			//							Grupo_L2->Insert_First_G2(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Z")
+			//						{
+			//							temp_Val = 2;
+			//							Grupo_L2->Insert_First_G2(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "W")
+			//						{
+			//							temp_Val = 3;
+			//							Grupo_L2->Insert_First_G2(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "R")
+			//						{
+			//							temp_Val = 4;
+			//							Grupo_L2->Insert_First_G2(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Y")
+			//						{
+			//							temp_Val = 5;
+			//							Grupo_L2->Insert_First_G2(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "G")
+			//						{
+			//							temp_Val = 6;
+			//							Grupo_L2->Insert_First_G2(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "P")
+			//						{
+			//							temp_Val = 7;
+			//							Grupo_L2->Insert_First_G2(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "N")
+			//						{
+			//							temp_Val = 8;
+			//							Grupo_L2->Insert_First_G2(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "X")
+			//						{
+			//							x_Salto = true;
+			//						}
+
+			//					}
+			//					if (i == 3)
+			//					{
+			//						int temp_Val;
+			//						if (archivo_game_Line[j] == "B")
+			//						{
+			//							temp_Val = 1;
+			//							Grupo_L3->Insert_First_G3(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Z")
+			//						{
+			//							temp_Val = 2;
+			//							Grupo_L3->Insert_First_G3(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "W")
+			//						{
+			//							temp_Val = 3;
+			//							Grupo_L3->Insert_First_G3(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "R")
+			//						{
+			//							temp_Val = 4;
+			//							Grupo_L3->Insert_First_G3(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Y")
+			//						{
+			//							temp_Val = 5;
+			//							Grupo_L3->Insert_First_G3(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "G")
+			//						{
+			//							temp_Val = 6;
+			//							Grupo_L3->Insert_First_G3(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "P")
+			//						{
+			//							temp_Val = 7;
+			//							Grupo_L3->Insert_First_G3(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "N")
+			//						{
+			//							temp_Val = 8;
+			//							Grupo_L3->Insert_First_G3(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "X")
+			//						{
+			//							x_Salto = true;
+			//						}
+			//					}
+			//					if (i == 4)
+			//					{
+			//						int temp_Val;
+			//						if (archivo_game_Line[j] == "B")
+			//						{
+			//							temp_Val = 1;
+			//							Grupo_L4->Insert_First_G4(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Z")
+			//						{
+			//							temp_Val = 2;
+			//							Grupo_L4->Insert_First_G4(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "W")
+			//						{
+			//							temp_Val = 3;
+			//							Grupo_L4->Insert_First_G4(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "R")
+			//						{
+			//							temp_Val = 4;
+			//							Grupo_L4->Insert_First_G4(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Y")
+			//						{
+			//							temp_Val = 5;
+			//							Grupo_L4->Insert_First_G4(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "G")
+			//						{
+			//							temp_Val = 6;
+			//							Grupo_L4->Insert_First_G4(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "P")
+			//						{
+			//							temp_Val = 7;
+			//							Grupo_L4->Insert_First_G4(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "N")
+			//						{
+			//							temp_Val = 8;
+			//							Grupo_L4->Insert_First_G4(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "X")
+			//						{
+			//							x_Salto = true;
+			//						}
+			//					}
+			//					if (i == 5)
+			//					{
+			//						int temp_Val;
+			//						if (archivo_game_Line[j] == "B")
+			//						{
+			//							temp_Val = 1;
+			//							Grupo_L5->Insert_First_G5(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Z")
+			//						{
+			//							temp_Val = 2;
+			//							Grupo_L5->Insert_First_G5(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "W")
+			//						{
+			//							temp_Val = 3;
+			//							Grupo_L5->Insert_First_G5(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "R")
+			//						{
+			//							temp_Val = 4;
+			//							Grupo_L5->Insert_First_G5(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Y")
+			//						{
+			//							temp_Val = 5;
+			//							Grupo_L5->Insert_First_G5(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "G")
+			//						{
+			//							temp_Val = 6;
+			//							Grupo_L5->Insert_First_G5(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "P")
+			//						{
+			//							temp_Val = 7;
+			//							Grupo_L5->Insert_First_G5(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "N")
+			//						{
+			//							temp_Val = 8;
+			//							Grupo_L5->Insert_First_G5(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "X")
+			//						{
+			//							x_Salto = true;
+			//						}
+
+			//					}
+			//					if (i == 6)
+			//					{
+			//						int temp_Val;
+			//						if (archivo_game_Line[j] == "B")
+			//						{
+			//							temp_Val = 1;
+			//							Grupo_L6->Insert_First_G6(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Z")
+			//						{
+			//							temp_Val = 2;
+			//							Grupo_L6->Insert_First_G6(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "W")
+			//						{
+			//							temp_Val = 3;
+			//							Grupo_L6->Insert_First_G6(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "R")
+			//						{
+			//							temp_Val = 4;
+			//							Grupo_L6->Insert_First_G6(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Y")
+			//						{
+			//							temp_Val = 5;
+			//							Grupo_L6->Insert_First_G6(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "G")
+			//						{
+			//							temp_Val = 6;
+			//							Grupo_L6->Insert_First_G6(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "P")
+			//						{
+			//							temp_Val = 7;
+			//							Grupo_L6->Insert_First_G6(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "N")
+			//						{
+			//							temp_Val = 8;
+			//							Grupo_L6->Insert_First_G6(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "X")
+			//						{
+			//							x_Salto = true;
+			//						}
+			//					}
+			//					if (i == 7)
+			//					{
+			//						int temp_Val;
+			//						if (archivo_game_Line[j] == "B")
+			//						{
+			//							temp_Val = 1;
+			//							Grupo_L7->Insert_First_G7(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Z")
+			//						{
+			//							temp_Val = 2;
+			//							Grupo_L7->Insert_First_G7(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "W")
+			//						{
+			//							temp_Val = 3;
+			//							Grupo_L7->Insert_First_G7(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "R")
+			//						{
+			//							temp_Val = 4;
+			//							Grupo_L7->Insert_First_G7(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Y")
+			//						{
+			//							temp_Val = 5;
+			//							Grupo_L7->Insert_First_G7(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "G")
+			//						{
+			//							temp_Val = 6;
+			//							Grupo_L7->Insert_First_G7(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "P")
+			//						{
+			//							temp_Val = 7;
+			//							Grupo_L7->Insert_First_G7(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "N")
+			//						{
+			//							temp_Val = 8;
+			//							Grupo_L7->Insert_First_G7(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "X")
+			//						{
+			//							x_Salto = true;
+			//						}
+			//					}
+			//					if (i == 8)
+			//					{
+			//						int temp_Val;
+			//						if (archivo_game_Line[j] == "B")
+			//						{
+			//							temp_Val = 1;
+			//							Grupo_L8->Insert_First_G8(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Z")
+			//						{
+			//							temp_Val = 2;
+			//							Grupo_L8->Insert_First_G8(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "W")
+			//						{
+			//							temp_Val = 3;
+			//							Grupo_L8->Insert_First_G8(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "R")
+			//						{
+			//							temp_Val = 4;
+			//							Grupo_L8->Insert_First_G8(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "Y")
+			//						{
+			//							temp_Val = 5;
+			//							Grupo_L8->Insert_First_G8(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "G")
+			//						{
+			//							temp_Val = 6;
+			//							Grupo_L8->Insert_First_G8(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "P")
+			//						{
+			//							temp_Val = 7;
+			//							Grupo_L8->Insert_First_G8(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "N")
+			//						{
+			//							temp_Val = 8;
+			//							Grupo_L8->Insert_First_G8(temp_Val);
+			//							x_Salto = false;
+			//						}
+			//						else if (archivo_game_Line[j] == "X")
+			//						{
+			//							x_Salto = true;
+			//						}
+			//					}
+			//					if (i >= 9)
+			//					{
+			//						MessageBox::Show("No es valido el archivo seleccionado", "Archivo invalido", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+			//						Limpiar_View_Game();
+			//						break;
+			//					}
 
 
 
 
-
-						//Llena el DatagridView
-
-						//for (int i = 0; i < cantidadColumnas; i++) {
-						//	array<String^>^ fila = archivoLineas[i]->Split(',');
-						//	array<String^>^ Columna = archivoLineas[i]->Split('X');
-						//	int j = 0;
-
-							//Si alguna fila tiene más o menos objetos no afecta al funcionamiento ya que utiliza la cantidad de elementos de la primer fila
-						//	while ((j < cantidadColumnas) && (j < cantidadFlias)) {
-						//		dgvMatriz->Rows[i]->Cells[j]->Value = Columna[j];
-						//		j++;
-						//	}
+			//				}
 
 
-
-						//}
-
+			//			}
 
 
+			//		}
+			//	}
 
-					}
-				}
 
-			}
-			else {
-				// Si no se selecciona correctamente un elemento entonces falla
-				MessageBox::Show("No se seleccionó ningún archivo"
-					, "Archivo no seleccionado"
-					, MessageBoxButtons::OK
-					, MessageBoxIcon::Exclamation);
-			}
+			//}
+			//else {
+			//	// Si no se selecciona correctamente un elemento entonces falla
+			//	MessageBox::Show("No se seleccionó ningún archivo"
+			//		, "Archivo no seleccionado"
+			//		, MessageBoxButtons::OK
+			//		, MessageBoxIcon::Exclamation);
+			//}
 
 		}
 
