@@ -1,4 +1,3 @@
-#include "Node.h";
 #include "List.h";
 #pragma once
 
@@ -19,18 +18,61 @@ namespace Proyecto1HansSempe1083920 {
 	{
 	public:
 
-		List* miList;
+		List* milist;
 		List* milist2;
 		List* milist3;
 		List* milist4;
+		List* milist5;
+		List* milist6;
+		List* milist7;
+		List* milist8;
+
 
 
 		MyForm1(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: agregar código de constructor aquí
-			//
+
+			milist = new List();
+			milist->count = 0;
+			milist->start = nullptr;
+			milist->end = nullptr;
+
+			milist2 = new List();
+			milist2->count2 = 0;
+			milist2->start2 = nullptr;
+			milist2->end2 = nullptr;
+
+			milist3 = new List();
+			milist3->count3 = 0;
+			milist3->start3 = nullptr;
+			milist3->end3 = nullptr;
+
+			milist4 = new List();
+			milist4->count4 = 0;
+			milist4->start4 = nullptr;
+			milist4->end4 = nullptr;
+
+			milist5 = new List();
+			milist5->count5 = 0;
+			milist5->start5 = nullptr;
+			milist5->end5 = nullptr;
+
+			milist6 = new List();
+			milist6->count6 = 0;
+			milist6->start6 = nullptr;
+			milist6->end6 = nullptr;
+
+			milist7 = new List();
+			milist7->count7 = 0;
+			milist7->start7 = nullptr;
+			milist7->end7 = nullptr;
+
+			milist8 = new List();
+			milist8->count8 = 0;
+			milist8->start8 = nullptr;
+			milist8->end8 = nullptr;
+
 		}
 
 	protected:
@@ -426,12 +468,9 @@ namespace Proyecto1HansSempe1083920 {
 		}
 
 
-
-
 #pragma endregion
 
 		
-
 
 
 		private: void ReestablecerMatriz() {
@@ -442,532 +481,518 @@ namespace Proyecto1HansSempe1083920 {
 		};
 
 		
-		private: System::Void importarDatos_Click_1(System::Object^ sender, System::EventArgs^ e) {
-			
-			////Se agregan los filtros al OpenFileDialog
-			//ofdImportar->Filter = "Archivos separados por coma (txt) | *.txt";
-			//ofdImportar->FileName = "";
+		private: System::Void importarDatos_Click_1(System::Object^ sender, System::EventArgs^ e) {			
+			ofdImportar->Filter = "Archivos separados por coma (txt) | *.txt";
+			ofdImportar->FileName = "";
+			if (ofdImportar->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+				ReestablecerMatriz();
+				array<String^>^ archivo_game_Complete = File::ReadAllLines(ofdImportar->FileName);
+				if (archivo_game_Complete->Length > 0)
+				{
+					array<String^>^ archivo_game_Line = archivo_game_Complete[0]->Split(',');
+					array<String^>^ archivo_game_Column = archivo_game_Complete[0]->Split('X');
+					if (archivo_game_Line->Length > 0)
+					{
+						int cant_columnas = archivo_game_Column->Length;
+						for (int i = 0; i < cant_columnas; i++)
+						{
+							DataGridViewColumn^ New_Column = gcnew DataGridViewColumn();
+							New_Column->Width = 30;
+							DataGridViewCell^ Cell_Templete = gcnew DataGridViewTextBoxCell();
+							New_Column->CellTemplate = Cell_Templete;
+							dgvMatriz->Columns->Add(New_Column);
+						}
+						for (int i = 0; i < (archivo_game_Line->Length / archivo_game_Column->Length) - 1; i++)
+						{
+							dgvMatriz->Rows->Add();
+						}
+						bool x_Salto = false;
+						for (int i = 1; i < archivo_game_Column->Length;)
+						{
+							int j;
+							for (j = 0; j < archivo_game_Line->Length; j++)
+							{
+								if (x_Salto == true)
+								{
+									i++;
+								}
+								if (i == 1)
+								{
+									int temp_Val;
+									if (archivo_game_Line[j] == "B")
+									{
+										temp_Val = 1;
+										milist->InsertAtStart(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Z")
+									{
+										temp_Val = 2;
+										milist->InsertAtStart(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "W")
+									{
+										temp_Val = 3;
+										milist->InsertAtStart(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "R")
+									{
+										temp_Val = 4;
+										milist->InsertAtStart(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Y")
+									{
+										temp_Val = 5;
+										milist->InsertAtStart(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "G")
+									{
+										temp_Val = 6;
+										milist->InsertAtStart(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "P")
+									{
+										temp_Val = 7;
+										milist->InsertAtStart(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "N")
+									{
+										temp_Val = 8;
+										milist->InsertAtStart(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "X")
+									{
+										x_Salto = true;
+									}
 
-			////Unicamnte si el reultado de la apertura del archivo es exitosa se carga el archivo
-			//if (ofdImportar->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
-			//	ReestablecerMatriz();
-			//	array<String^>^ archivo_game_Complete = File::ReadAllLines(ofdImportar->FileName);
+								}
+								if (i == 2)
+								{
+									int temp_Val;
+									if (archivo_game_Line[j] == "B")
+									{
+										temp_Val = 1;
+										milist2->InsertAtStart2(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Z")
+									{
+										temp_Val = 2;
+										milist2->InsertAtStart2(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "W")
+									{
+										temp_Val = 3;
+										milist2->InsertAtStart2(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "R")
+									{
+										temp_Val = 4;
+										milist2->InsertAtStart2(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Y")
+									{
+										temp_Val = 5;
+										milist2->InsertAtStart2(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "G")
+									{
+										temp_Val = 6;
+										milist2->InsertAtStart2(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "P")
+									{
+										temp_Val = 7;
+										milist2->InsertAtStart2(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "N")
+									{
+										temp_Val = 8;
+										milist2->InsertAtStart2(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "X")
+									{
+										x_Salto = true;
+									}
 
-			//	if (archivo_game_Complete->Length > 0)
-			//	{
-			//		array<String^>^ archivo_game_Line = archivo_game_Complete[0]->Split(',');
-			//		array<String^>^ archivo_game_Column = archivo_game_Complete[0]->Split('X');
+								}
+								if (i == 3)
+								{
+									int temp_Val;
+									if (archivo_game_Line[j] == "B")
+									{
+										temp_Val = 1;
+										milist3->InsertAtStart3(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Z")
+									{
+										temp_Val = 2;
+										milist3->InsertAtStart3(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "W")
+									{
+										temp_Val = 3;
+										milist3->InsertAtStart3(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "R")
+									{
+										temp_Val = 4;
+										milist3->InsertAtStart3(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Y")
+									{
+										temp_Val = 5;
+										milist3->InsertAtStart3(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "G")
+									{
+										temp_Val = 6;
+										milist3->InsertAtStart3(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "P")
+									{
+										temp_Val = 7;
+										milist3->InsertAtStart3(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "N")
+									{
+										temp_Val = 8;
+										milist3->InsertAtStart3(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "X")
+									{
+										x_Salto = true;
+									}
+								}
+								if (i == 4)
+								{
+									int temp_Val;
+									if (archivo_game_Line[j] == "B")
+									{
+										temp_Val = 1;
+										milist4->InsertAtStart4(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Z")
+									{
+										temp_Val = 2;
+										milist4->InsertAtStart4(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "W")
+									{
+										temp_Val = 3;
+										milist4->InsertAtStart4(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "R")
+									{
+										temp_Val = 4;
+										milist4->InsertAtStart4(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Y")
+									{
+										temp_Val = 5;
+										milist4->InsertAtStart4(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "G")
+									{
+										temp_Val = 6;
+										milist4->InsertAtStart4(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "P")
+									{
+										temp_Val = 7;
+										milist4->InsertAtStart4(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "N")
+									{
+										temp_Val = 8;
+										milist4->InsertAtStart4(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "X")
+									{
+										x_Salto = true;
+									}
+								}
+								if (i == 5)
+								{
+									int temp_Val;
+									if (archivo_game_Line[j] == "B")
+									{
+										temp_Val = 1;
+										milist5->InsertAtStart5(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Z")
+									{
+										temp_Val = 2;
+										milist5->InsertAtStart5(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "W")
+									{
+										temp_Val = 3;
+										milist5->InsertAtStart5(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "R")
+									{
+										temp_Val = 4;
+										milist5->InsertAtStart5(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Y")
+									{
+										temp_Val = 5;
+										milist5->InsertAtStart5(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "G")
+									{
+										temp_Val = 6;
+										milist5->InsertAtStart5(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "P")
+									{
+										temp_Val = 7;
+										milist5->InsertAtStart5(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "N")
+									{
+										temp_Val = 8;
+										milist5->InsertAtStart5(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "X")
+									{
+										x_Salto = true;
+									}
 
-			//		if (archivo_game_Line->Length > 0)
-			//		{
-			//			int cant_columnas = archivo_game_Column->Length;
-
-			//			for (int i = 0; i < cant_columnas; i++)
-			//			{
-			//				DataGridViewColumn^ New_Column = gcnew DataGridViewColumn();
-			//				New_Column->Width = 30;
-
-			//				DataGridViewCell^ Cell_Templete = gcnew DataGridViewTextBoxCell();
-			//				New_Column->CellTemplate = Cell_Templete;
-
-			//				dgvMatriz->Columns->Add(New_Column);
-			//			}
-
-			//			for (int i = 0; i < (archivo_game_Line->Length / archivo_game_Column->Length) - 1; i++)
-			//			{
-			//				dgvMatriz->Rows->Add();
-			//			}
-
-			//			bool x_Salto = false;
-			//			for (int i = 1; i < archivo_game_Column->Length;)
-			//			{
-			//				int j;
-
-			//				for (j = 0; j < archivo_game_Line->Length; j++)
-			//				{
-			//					if (x_Salto == true)
-			//					{
-			//						i++;
-			//					}
-			//					if (i == 1)
-			//					{
-			//						int temp_Val;
-			//						if (archivo_game_Line[j] == "B")
-			//						{
-			//							temp_Val = 1;
-			//							miList->InsertAtStart1(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Z")
-			//						{
-			//							temp_Val = 2;
-			//							miList->Insert_First_G1(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "W")
-			//						{
-			//							temp_Val = 3;
-			//							miList->Insert_First_G1(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "R")
-			//						{
-			//							temp_Val = 4;
-			//							miList->Insert_First_G1(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Y")
-			//						{
-			//							temp_Val = 5;
-			//							miList->Insert_First_G1(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "G")
-			//						{
-			//							temp_Val = 6;
-			//							miList->Insert_First_G1(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "P")
-			//						{
-			//							temp_Val = 7;
-			//							miList->Insert_First_G1(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "N")
-			//						{
-			//							temp_Val = 8;
-			//							miList->Insert_First_G1(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "X")
-			//						{
-			//							x_Salto = true;
-			//						}
-
-			//					}
-			//					if (i == 2)
-			//					{
-			//						int temp_Val;
-			//						if (archivo_game_Line[j] == "B")
-			//						{
-			//							temp_Val = 1;
-			//							Grupo_L2->Insert_First_G2(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Z")
-			//						{
-			//							temp_Val = 2;
-			//							Grupo_L2->Insert_First_G2(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "W")
-			//						{
-			//							temp_Val = 3;
-			//							Grupo_L2->Insert_First_G2(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "R")
-			//						{
-			//							temp_Val = 4;
-			//							Grupo_L2->Insert_First_G2(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Y")
-			//						{
-			//							temp_Val = 5;
-			//							Grupo_L2->Insert_First_G2(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "G")
-			//						{
-			//							temp_Val = 6;
-			//							Grupo_L2->Insert_First_G2(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "P")
-			//						{
-			//							temp_Val = 7;
-			//							Grupo_L2->Insert_First_G2(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "N")
-			//						{
-			//							temp_Val = 8;
-			//							Grupo_L2->Insert_First_G2(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "X")
-			//						{
-			//							x_Salto = true;
-			//						}
-
-			//					}
-			//					if (i == 3)
-			//					{
-			//						int temp_Val;
-			//						if (archivo_game_Line[j] == "B")
-			//						{
-			//							temp_Val = 1;
-			//							Grupo_L3->Insert_First_G3(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Z")
-			//						{
-			//							temp_Val = 2;
-			//							Grupo_L3->Insert_First_G3(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "W")
-			//						{
-			//							temp_Val = 3;
-			//							Grupo_L3->Insert_First_G3(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "R")
-			//						{
-			//							temp_Val = 4;
-			//							Grupo_L3->Insert_First_G3(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Y")
-			//						{
-			//							temp_Val = 5;
-			//							Grupo_L3->Insert_First_G3(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "G")
-			//						{
-			//							temp_Val = 6;
-			//							Grupo_L3->Insert_First_G3(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "P")
-			//						{
-			//							temp_Val = 7;
-			//							Grupo_L3->Insert_First_G3(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "N")
-			//						{
-			//							temp_Val = 8;
-			//							Grupo_L3->Insert_First_G3(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "X")
-			//						{
-			//							x_Salto = true;
-			//						}
-			//					}
-			//					if (i == 4)
-			//					{
-			//						int temp_Val;
-			//						if (archivo_game_Line[j] == "B")
-			//						{
-			//							temp_Val = 1;
-			//							Grupo_L4->Insert_First_G4(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Z")
-			//						{
-			//							temp_Val = 2;
-			//							Grupo_L4->Insert_First_G4(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "W")
-			//						{
-			//							temp_Val = 3;
-			//							Grupo_L4->Insert_First_G4(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "R")
-			//						{
-			//							temp_Val = 4;
-			//							Grupo_L4->Insert_First_G4(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Y")
-			//						{
-			//							temp_Val = 5;
-			//							Grupo_L4->Insert_First_G4(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "G")
-			//						{
-			//							temp_Val = 6;
-			//							Grupo_L4->Insert_First_G4(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "P")
-			//						{
-			//							temp_Val = 7;
-			//							Grupo_L4->Insert_First_G4(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "N")
-			//						{
-			//							temp_Val = 8;
-			//							Grupo_L4->Insert_First_G4(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "X")
-			//						{
-			//							x_Salto = true;
-			//						}
-			//					}
-			//					if (i == 5)
-			//					{
-			//						int temp_Val;
-			//						if (archivo_game_Line[j] == "B")
-			//						{
-			//							temp_Val = 1;
-			//							Grupo_L5->Insert_First_G5(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Z")
-			//						{
-			//							temp_Val = 2;
-			//							Grupo_L5->Insert_First_G5(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "W")
-			//						{
-			//							temp_Val = 3;
-			//							Grupo_L5->Insert_First_G5(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "R")
-			//						{
-			//							temp_Val = 4;
-			//							Grupo_L5->Insert_First_G5(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Y")
-			//						{
-			//							temp_Val = 5;
-			//							Grupo_L5->Insert_First_G5(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "G")
-			//						{
-			//							temp_Val = 6;
-			//							Grupo_L5->Insert_First_G5(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "P")
-			//						{
-			//							temp_Val = 7;
-			//							Grupo_L5->Insert_First_G5(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "N")
-			//						{
-			//							temp_Val = 8;
-			//							Grupo_L5->Insert_First_G5(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "X")
-			//						{
-			//							x_Salto = true;
-			//						}
-
-			//					}
-			//					if (i == 6)
-			//					{
-			//						int temp_Val;
-			//						if (archivo_game_Line[j] == "B")
-			//						{
-			//							temp_Val = 1;
-			//							Grupo_L6->Insert_First_G6(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Z")
-			//						{
-			//							temp_Val = 2;
-			//							Grupo_L6->Insert_First_G6(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "W")
-			//						{
-			//							temp_Val = 3;
-			//							Grupo_L6->Insert_First_G6(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "R")
-			//						{
-			//							temp_Val = 4;
-			//							Grupo_L6->Insert_First_G6(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Y")
-			//						{
-			//							temp_Val = 5;
-			//							Grupo_L6->Insert_First_G6(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "G")
-			//						{
-			//							temp_Val = 6;
-			//							Grupo_L6->Insert_First_G6(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "P")
-			//						{
-			//							temp_Val = 7;
-			//							Grupo_L6->Insert_First_G6(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "N")
-			//						{
-			//							temp_Val = 8;
-			//							Grupo_L6->Insert_First_G6(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "X")
-			//						{
-			//							x_Salto = true;
-			//						}
-			//					}
-			//					if (i == 7)
-			//					{
-			//						int temp_Val;
-			//						if (archivo_game_Line[j] == "B")
-			//						{
-			//							temp_Val = 1;
-			//							Grupo_L7->Insert_First_G7(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Z")
-			//						{
-			//							temp_Val = 2;
-			//							Grupo_L7->Insert_First_G7(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "W")
-			//						{
-			//							temp_Val = 3;
-			//							Grupo_L7->Insert_First_G7(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "R")
-			//						{
-			//							temp_Val = 4;
-			//							Grupo_L7->Insert_First_G7(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Y")
-			//						{
-			//							temp_Val = 5;
-			//							Grupo_L7->Insert_First_G7(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "G")
-			//						{
-			//							temp_Val = 6;
-			//							Grupo_L7->Insert_First_G7(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "P")
-			//						{
-			//							temp_Val = 7;
-			//							Grupo_L7->Insert_First_G7(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "N")
-			//						{
-			//							temp_Val = 8;
-			//							Grupo_L7->Insert_First_G7(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "X")
-			//						{
-			//							x_Salto = true;
-			//						}
-			//					}
-			//					if (i == 8)
-			//					{
-			//						int temp_Val;
-			//						if (archivo_game_Line[j] == "B")
-			//						{
-			//							temp_Val = 1;
-			//							Grupo_L8->Insert_First_G8(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Z")
-			//						{
-			//							temp_Val = 2;
-			//							Grupo_L8->Insert_First_G8(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "W")
-			//						{
-			//							temp_Val = 3;
-			//							Grupo_L8->Insert_First_G8(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "R")
-			//						{
-			//							temp_Val = 4;
-			//							Grupo_L8->Insert_First_G8(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "Y")
-			//						{
-			//							temp_Val = 5;
-			//							Grupo_L8->Insert_First_G8(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "G")
-			//						{
-			//							temp_Val = 6;
-			//							Grupo_L8->Insert_First_G8(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "P")
-			//						{
-			//							temp_Val = 7;
-			//							Grupo_L8->Insert_First_G8(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "N")
-			//						{
-			//							temp_Val = 8;
-			//							Grupo_L8->Insert_First_G8(temp_Val);
-			//							x_Salto = false;
-			//						}
-			//						else if (archivo_game_Line[j] == "X")
-			//						{
-			//							x_Salto = true;
-			//						}
-			//					}
-			//					if (i >= 9)
-			//					{
-			//						MessageBox::Show("No es valido el archivo seleccionado", "Archivo invalido", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
-			//						Limpiar_View_Game();
-			//						break;
-			//					}
+								}
+								if (i == 6)
+								{
+									int temp_Val;
+									if (archivo_game_Line[j] == "B")
+									{
+										temp_Val = 1;
+										milist6->InsertAtStart6(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Z")
+									{
+										temp_Val = 2;
+										milist6->InsertAtStart6(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "W")
+									{
+										temp_Val = 3;
+										milist6->InsertAtStart6(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "R")
+									{
+										temp_Val = 4;
+										milist6->InsertAtStart6(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Y")
+									{
+										temp_Val = 5;
+										milist6->InsertAtStart6(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "G")
+									{
+										temp_Val = 6;
+										milist6->InsertAtStart6(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "P")
+									{
+										temp_Val = 7;
+										milist6->InsertAtStart6(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "N")
+									{
+										temp_Val = 8;
+										milist6->InsertAtStart6(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "X")
+									{
+										x_Salto = true;
+									}
+								}
+								if (i == 7)
+								{
+									int temp_Val;
+									if (archivo_game_Line[j] == "B")
+									{
+										temp_Val = 1;
+										milist7->InsertAtStart7(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Z")
+									{
+										temp_Val = 2;
+										milist7->InsertAtStart7(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "W")
+									{
+										temp_Val = 3;
+										milist7->InsertAtStart7(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "R")
+									{
+										temp_Val = 4;
+										milist7->InsertAtStart7(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Y")
+									{
+										temp_Val = 5;
+										milist7->InsertAtStart7(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "G")
+									{
+										temp_Val = 6;
+										milist7->InsertAtStart7(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "P")
+									{
+										temp_Val = 7;
+										milist7->InsertAtStart7(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "N")
+									{
+										temp_Val = 8;
+										milist7->InsertAtStart7(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "X")
+									{
+										x_Salto = true;
+									}
+								}
+								if (i == 8)
+								{
+									int temp_Val;
+									if (archivo_game_Line[j] == "B")
+									{
+										temp_Val = 1;
+										milist8->InsertAtStart8(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Z")
+									{
+										temp_Val = 2;
+										milist8->InsertAtStart8(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "W")
+									{
+										temp_Val = 3;
+										milist8->InsertAtStart8(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "R")
+									{
+										temp_Val = 4;
+										milist8->InsertAtStart8(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "Y")
+									{
+										temp_Val = 5;
+										milist8->InsertAtStart8(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "G")
+									{
+										temp_Val = 6;
+										milist8->InsertAtStart8(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "P")
+									{
+										temp_Val = 7;
+										milist8->InsertAtStart8(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "N")
+									{
+										temp_Val = 8;
+										milist8->InsertAtStart8(temp_Val);
+										x_Salto = false;
+									}
+									else if (archivo_game_Line[j] == "X")
+									{
+										x_Salto = true;
+									}
+								}
+								if (i >= 9)
+								{
+									MessageBox::Show("No es valido el archivo seleccionado", "Archivo invalido", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+									ReestablecerMatriz();
+									break;
+								}
 
 
+							}
 
 
-			//				}
+						}
 
 
-			//			}
+					}
+				}
 
 
-			//		}
-			//	}
-
-
-			//}
-			//else {
-			//	// Si no se selecciona correctamente un elemento entonces falla
-			//	MessageBox::Show("No se seleccionó ningún archivo"
-			//		, "Archivo no seleccionado"
-			//		, MessageBoxButtons::OK
-			//		, MessageBoxIcon::Exclamation);
-			//}
+			}
+			else {
+				// Si no se selecciona correctamente un elemento entonces falla
+				MessageBox::Show("No se seleccionó ningún archivo"
+					, "Archivo no seleccionado"
+					, MessageBoxButtons::OK
+					, MessageBoxIcon::Exclamation);
+			}
 
 		}
 

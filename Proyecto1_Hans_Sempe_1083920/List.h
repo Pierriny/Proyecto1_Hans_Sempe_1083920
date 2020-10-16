@@ -3,150 +3,116 @@
 
 class List
 {
+public:
 	Node* start;
 	Node* end;
 	int count;
 
-	Node2* start;
-	Node2* end;
+	Node2* start2;
+	Node2* end2;
 	int count2;
 
-	Node3* start;
-	Node3* end;
+	Node3* start3;
+	Node3* end3;
 	int count3;
 
-	Node4* start;
-	Node4* end;
+	Node4* start4;
+	Node4* end4;
 	int count4;
 
-	Node5* start;
-	Node5* end;
+	Node5* start5;
+	Node5* end5;
 	int count5;
 	
+	Node6* start6;
+	Node6* end6;
+	int count6;
 
+	Node7* start7;
+	Node7* end7;
+	int count7;
 
-
-	List();
-
-
-	void InsertAtStart(int value);
-	void InsertAtEnd(char value);
-
+	Node8* start8;
+	Node8* end8;
+	int count8;
 
 	//
-	void InsertAtPosition(char value, int position);
+	List();
+	//
+	
+	//
+	//Insert Operations
+	//
+
+	void InsertAtStart(int value);
+	void InsertAtEnd(int value);
+
+	void InsertAtStart2(int value);
+	void InsertAtEnd2(int value);
+
+	void InsertAtStart3(int value);
+	void InsertAtEnd3(int value);
+
+	void InsertAtStart4(int value);
+	void InsertAtEnd4(int value);
+
+	void InsertAtStart5(int value);
+	void InsertAtEnd5(int value);
+
+	void InsertAtStart6(int value);
+	void InsertAtEnd6(int value);
+
+	void InsertAtStart7(int value);
+	void InsertAtEnd7(int value);
+
+	void InsertAtStart8(int value);
+	void InsertAtEnd8(int value);
+
+	//
+	//Extract operation
 	//
 
 	Node* ExtractAtStart();
 	Node* ExtractAtEnd();
 
+	Node2* ExtractAtStart2();
+	Node2* ExtractAtEnd2();
+
+	Node3* ExtractAtStart3();
+	Node3* ExtractAtEnd3();
+
+	Node4* ExtractAtStart4();
+	Node4* ExtractAtEnd4();
+
+	Node5* ExtractAtStart5();
+	Node5* ExtractAtEnd5();
+
+	Node6* ExtractAtStart6();
+	Node6* ExtractAtEnd6();
+
+	Node7* ExtractAtStart7();
+	Node7* ExtractAtEnd7();
+
+	Node8* ExtractAtStart8();
+	Node8* ExtractAtEnd8();
+
 	//
-	Node* ExtractAtPosition(int position);
-	Node* GetNode(char value);
-	//string GetValue(int position);
+	//Search operations
+	//
 
-	
 	bool isEmpty();
-	
-
-	void suprimirCola(Node*& frente, Node *&fin,char value);
-
-	void InsertAtStart2(int value);
-	void InsertAtEnd2(char value);
-	void InsertAtPosition2(char value, int position);
-	Node* ExtractAtStart2();
-	Node* ExtractAtEnd2();
-	Node* ExtractAtPosition2(int position);
-	Node* GetNode2(char value);
-	//string GetValue(int position);
-
-
 	bool isEmpty2();
-
-
+	bool isEmpty3();
+	bool isEmpty4();
+	bool isEmpty5();
+	bool isEmpty6();
+	bool isEmpty7();
+	bool isEmpty8();
 
 	void suprimirCola2(Node*& frente, Node*& fin, char value);
-
-
-
-
-
-
 
 	~List() {};
 };
-
-class List2
-{
-
-
-	void InsertAtStart2(int value);
-	void InsertAtEnd2(char value);
-	void InsertAtPosition2(char value, int position);
-	Node* ExtractAtStart2();
-	Node* ExtractAtEnd2();
-	Node* ExtractAtPosition2(int position);
-	Node* GetNode2(char value);
-	//string GetValue(int position);
-	bool isEmpty2();
-	void suprimirCola2(Node*& frente, Node*& fin, char value);
-	~List2() {};
-};
-
-class List3
-{
-	
-	
-
-	void InsertAtStart3(int value);
-	void InsertAtEnd3(char value);
-	void InsertAtPosition3(char value, int position);
-	Node* ExtractAtStart3();
-	Node* ExtractAtEnd3();
-	Node* ExtractAtPosition3(int position);
-	Node* GetNode3(char value);
-	//string GetValue(int position);
-	bool isEmpty3();
-	void suprimirCola3(Node*& frente, Node*& fin, char value);
-	~List3() {};
-};
-
-
-class List4
-{
-
-
-	void InsertAtStart4(int value);
-	void InsertAtEnd4(char value);
-	void InsertAtPosition4(char value, int position);
-	Node* ExtractAtStart4();
-	Node* ExtractAtEnd4();
-	Node* ExtractAtPosition4(int position);
-	Node* GetNode4(char value);
-	//string GetValue(int position);
-	bool isEmpty4();
-	void suprimirCola4(Node*& frente, Node*& fin, char value);
-	~List4() {};
-};
-
-class List5
-{
-
-
-	void InsertAtStart5(int value);
-	void InsertAtEnd5(char value);
-	void InsertAtPosition5(char value, int position);
-	Node* ExtractAtStart5();
-	Node* ExtractAtEnd5();
-	Node* ExtractAtPosition5(int position);
-	Node* GetNode5(char value);
-	//string GetValue(int position);
-	bool isEmpty5();
-	void suprimirCola5(Node*& frente, Node*& fin, char value);
-	~List5() {};
-};
-
-
 
 
 
