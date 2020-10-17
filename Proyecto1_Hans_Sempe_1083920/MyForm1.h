@@ -89,11 +89,11 @@ namespace Proyecto1HansSempe1083920 {
 	private: System::Windows::Forms::TextBox^ txtPath;
 	protected:
 	private: System::Windows::Forms::Button^ importarDatos;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::TextBox^ columnas;
-	private: System::Windows::Forms::TextBox^ filas;
-	private: System::Windows::Forms::Button^ CrearMatriz;
+
+
+
+
+
 	private: System::Windows::Forms::DataGridView^ dgvMatriz;
 	private: System::Windows::Forms::OpenFileDialog^ ofdImportar;
 	private: System::Windows::Forms::CheckBox^ MoverENpila;
@@ -140,11 +140,6 @@ namespace Proyecto1HansSempe1083920 {
 		{
 			this->txtPath = (gcnew System::Windows::Forms::TextBox());
 			this->importarDatos = (gcnew System::Windows::Forms::Button());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->columnas = (gcnew System::Windows::Forms::TextBox());
-			this->filas = (gcnew System::Windows::Forms::TextBox());
-			this->CrearMatriz = (gcnew System::Windows::Forms::Button());
 			this->dgvMatriz = (gcnew System::Windows::Forms::DataGridView());
 			this->ofdImportar = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->MoverENpila = (gcnew System::Windows::Forms::CheckBox());
@@ -170,16 +165,16 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			// txtPath
 			// 
-			this->txtPath->Location = System::Drawing::Point(598, 56);
+			this->txtPath->Location = System::Drawing::Point(201, 28);
 			this->txtPath->Name = L"txtPath";
-			this->txtPath->Size = System::Drawing::Size(246, 20);
+			this->txtPath->Size = System::Drawing::Size(637, 20);
 			this->txtPath->TabIndex = 23;
 			// 
 			// importarDatos
 			// 
 			this->importarDatos->Font = (gcnew System::Drawing::Font(L"Arial Black", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->importarDatos->Location = System::Drawing::Point(410, 40);
+			this->importarDatos->Location = System::Drawing::Point(13, 12);
 			this->importarDatos->Name = L"importarDatos";
 			this->importarDatos->Size = System::Drawing::Size(182, 46);
 			this->importarDatos->TabIndex = 22;
@@ -187,58 +182,10 @@ namespace Proyecto1HansSempe1083920 {
 			this->importarDatos->UseVisualStyleBackColor = true;
 			this->importarDatos->Click += gcnew System::EventHandler(this, &MyForm1::importarDatos_Click_1);
 			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(312, 70);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(76, 16);
-			this->label2->TabIndex = 21;
-			this->label2->Text = L"Columnas";
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(312, 45);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(42, 16);
-			this->label1->TabIndex = 20;
-			this->label1->Text = L"Filas";
-			// 
-			// columnas
-			// 
-			this->columnas->Location = System::Drawing::Point(206, 66);
-			this->columnas->Name = L"columnas";
-			this->columnas->Size = System::Drawing::Size(100, 20);
-			this->columnas->TabIndex = 19;
-			// 
-			// filas
-			// 
-			this->filas->Location = System::Drawing::Point(206, 40);
-			this->filas->Name = L"filas";
-			this->filas->Size = System::Drawing::Size(100, 20);
-			this->filas->TabIndex = 18;
-			// 
-			// CrearMatriz
-			// 
-			this->CrearMatriz->Font = (gcnew System::Drawing::Font(L"Arial Black", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->CrearMatriz->Location = System::Drawing::Point(18, 40);
-			this->CrearMatriz->Name = L"CrearMatriz";
-			this->CrearMatriz->Size = System::Drawing::Size(182, 46);
-			this->CrearMatriz->TabIndex = 17;
-			this->CrearMatriz->Text = L"Preparar Matriz";
-			this->CrearMatriz->UseVisualStyleBackColor = true;
-			this->CrearMatriz->Click += gcnew System::EventHandler(this, &MyForm1::CrearMatriz_Click_1);
-			// 
 			// dgvMatriz
 			// 
 			this->dgvMatriz->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvMatriz->Location = System::Drawing::Point(252, 109);
+			this->dgvMatriz->Location = System::Drawing::Point(246, 81);
 			this->dgvMatriz->Name = L"dgvMatriz";
 			this->dgvMatriz->Size = System::Drawing::Size(340, 340);
 			this->dgvMatriz->TabIndex = 16;
@@ -252,7 +199,8 @@ namespace Proyecto1HansSempe1083920 {
 			this->MoverENpila->AutoSize = true;
 			this->MoverENpila->Font = (gcnew System::Drawing::Font(L"Arial", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->MoverENpila->Location = System::Drawing::Point(91, 109);
+			this->MoverENpila->ForeColor = System::Drawing::Color::White;
+			this->MoverENpila->Location = System::Drawing::Point(85, 81);
 			this->MoverENpila->Name = L"MoverENpila";
 			this->MoverENpila->Size = System::Drawing::Size(63, 26);
 			this->MoverENpila->TabIndex = 24;
@@ -264,7 +212,8 @@ namespace Proyecto1HansSempe1083920 {
 			this->MoverENcola->AutoSize = true;
 			this->MoverENcola->Font = (gcnew System::Drawing::Font(L"Arial", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->MoverENcola->Location = System::Drawing::Point(691, 109);
+			this->MoverENcola->ForeColor = System::Drawing::Color::White;
+			this->MoverENcola->Location = System::Drawing::Point(685, 81);
 			this->MoverENcola->Name = L"MoverENcola";
 			this->MoverENcola->Size = System::Drawing::Size(71, 26);
 			this->MoverENcola->TabIndex = 25;
@@ -275,7 +224,7 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			this->ColumnAmover->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->ColumnAmover->Location = System::Drawing::Point(638, 243);
+			this->ColumnAmover->Location = System::Drawing::Point(632, 215);
 			this->ColumnAmover->Name = L"ColumnAmover";
 			this->ColumnAmover->Size = System::Drawing::Size(184, 26);
 			this->ColumnAmover->TabIndex = 26;
@@ -284,7 +233,7 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			this->MoverColas->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->MoverColas->Location = System::Drawing::Point(654, 275);
+			this->MoverColas->Location = System::Drawing::Point(648, 247);
 			this->MoverColas->Name = L"MoverColas";
 			this->MoverColas->Size = System::Drawing::Size(152, 32);
 			this->MoverColas->TabIndex = 27;
@@ -297,7 +246,8 @@ namespace Proyecto1HansSempe1083920 {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(607, 138);
+			this->label3->ForeColor = System::Drawing::Color::White;
+			this->label3->Location = System::Drawing::Point(601, 110);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(228, 16);
 			this->label3->TabIndex = 28;
@@ -307,7 +257,7 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			this->GuardarJuego->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->GuardarJuego->Location = System::Drawing::Point(769, 426);
+			this->GuardarJuego->Location = System::Drawing::Point(763, 398);
 			this->GuardarJuego->Name = L"GuardarJuego";
 			this->GuardarJuego->Size = System::Drawing::Size(75, 23);
 			this->GuardarJuego->TabIndex = 29;
@@ -320,7 +270,8 @@ namespace Proyecto1HansSempe1083920 {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(607, 154);
+			this->label4->ForeColor = System::Drawing::Color::White;
+			this->label4->Location = System::Drawing::Point(601, 126);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(246, 16);
 			this->label4->TabIndex = 30;
@@ -331,7 +282,8 @@ namespace Proyecto1HansSempe1083920 {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(607, 170);
+			this->label5->ForeColor = System::Drawing::Color::White;
+			this->label5->Location = System::Drawing::Point(601, 142);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(147, 16);
 			this->label5->TabIndex = 31;
@@ -342,7 +294,8 @@ namespace Proyecto1HansSempe1083920 {
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(12, 170);
+			this->label6->ForeColor = System::Drawing::Color::White;
+			this->label6->Location = System::Drawing::Point(6, 142);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(171, 16);
 			this->label6->TabIndex = 34;
@@ -353,7 +306,8 @@ namespace Proyecto1HansSempe1083920 {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(12, 154);
+			this->label7->ForeColor = System::Drawing::Color::White;
+			this->label7->Location = System::Drawing::Point(6, 126);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(213, 16);
 			this->label7->TabIndex = 33;
@@ -364,7 +318,8 @@ namespace Proyecto1HansSempe1083920 {
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(12, 138);
+			this->label8->ForeColor = System::Drawing::Color::White;
+			this->label8->Location = System::Drawing::Point(6, 110);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(232, 16);
 			this->label8->TabIndex = 32;
@@ -372,14 +327,14 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			// PilaO
 			// 
-			this->PilaO->Location = System::Drawing::Point(19, 249);
+			this->PilaO->Location = System::Drawing::Point(13, 221);
 			this->PilaO->Name = L"PilaO";
 			this->PilaO->Size = System::Drawing::Size(100, 20);
 			this->PilaO->TabIndex = 35;
 			// 
 			// PilaD
 			// 
-			this->PilaD->Location = System::Drawing::Point(135, 249);
+			this->PilaD->Location = System::Drawing::Point(129, 221);
 			this->PilaD->Name = L"PilaD";
 			this->PilaD->Size = System::Drawing::Size(100, 20);
 			this->PilaD->TabIndex = 36;
@@ -388,19 +343,21 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			this->MoverPilas->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->MoverPilas->Location = System::Drawing::Point(48, 275);
+			this->MoverPilas->Location = System::Drawing::Point(42, 247);
 			this->MoverPilas->Name = L"MoverPilas";
 			this->MoverPilas->Size = System::Drawing::Size(152, 32);
 			this->MoverPilas->TabIndex = 37;
 			this->MoverPilas->Text = L"Mover";
 			this->MoverPilas->UseVisualStyleBackColor = true;
+			this->MoverPilas->Click += gcnew System::EventHandler(this, &MyForm1::MoverPilas_Click);
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(36, 230);
+			this->label9->ForeColor = System::Drawing::Color::White;
+			this->label9->Location = System::Drawing::Point(30, 202);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(58, 16);
 			this->label9->TabIndex = 38;
@@ -411,7 +368,8 @@ namespace Proyecto1HansSempe1083920 {
 			this->label10->AutoSize = true;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(155, 230);
+			this->label10->ForeColor = System::Drawing::Color::White;
+			this->label10->Location = System::Drawing::Point(149, 202);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(61, 16);
 			this->label10->TabIndex = 39;
@@ -422,7 +380,8 @@ namespace Proyecto1HansSempe1083920 {
 			this->label11->AutoSize = true;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->Location = System::Drawing::Point(679, 224);
+			this->label11->ForeColor = System::Drawing::Color::White;
+			this->label11->Location = System::Drawing::Point(673, 196);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(92, 16);
 			this->label11->TabIndex = 40;
@@ -432,7 +391,8 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(856, 461);
+			this->BackColor = System::Drawing::Color::Black;
+			this->ClientSize = System::Drawing::Size(846, 430);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label9);
@@ -452,11 +412,6 @@ namespace Proyecto1HansSempe1083920 {
 			this->Controls->Add(this->MoverENpila);
 			this->Controls->Add(this->txtPath);
 			this->Controls->Add(this->importarDatos);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->columnas);
-			this->Controls->Add(this->filas);
-			this->Controls->Add(this->CrearMatriz);
 			this->Controls->Add(this->dgvMatriz);
 			this->Name = L"MyForm1";
 			this->Text = L"MyForm1";
@@ -470,16 +425,12 @@ namespace Proyecto1HansSempe1083920 {
 
 #pragma endregion
 
-		
-
-
 		private: void ReestablecerMatriz() {
 			dgvMatriz->Rows->Clear();
 			dgvMatriz->Columns->Clear();
 			dgvMatriz->ColumnHeadersVisible = false;
 			dgvMatriz->RowHeadersVisible = false;
 		};
-
 		
 		private: System::Void importarDatos_Click_1(System::Object^ sender, System::EventArgs^ e) {			
 			ofdImportar->Filter = "Archivos separados por coma (txt) | *.txt";
@@ -973,18 +924,10 @@ namespace Proyecto1HansSempe1083920 {
 									ReestablecerMatriz();
 									break;
 								}
-
-
 							}
-
-
 						}
-
-
 					}
 				}
-
-
 			}
 			else {
 				// Si no se selecciona correctamente un elemento entonces falla
@@ -993,41 +936,98 @@ namespace Proyecto1HansSempe1083920 {
 					, MessageBoxButtons::OK
 					, MessageBoxIcon::Exclamation);
 			}
-
 		}
-
-
-		private: System::Void CrearMatriz_Click_1(System::Object^ sender, System::EventArgs^ e) {
-
-			dgvMatriz->ColumnHeadersVisible = false;
-			dgvMatriz->RowHeadersVisible = false;
-
-			int Num_Fila = Convert::ToInt32(filas->Text);
-
-			int Num_Columns = Convert::ToInt32(columnas->Text);
-
-			for (int i = 0; i < Num_Columns; i++) {
-
-				DataGridViewColumn^ nuevacolumna = gcnew DataGridViewColumn();
-				nuevacolumna->Width = 20;
-
-				DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
-				nuevacolumna->CellTemplate = cellTemplate;
-
-				dgvMatriz->Columns->Add(nuevacolumna);
-			}
-
-			for (int i = 1; i < Num_Fila; i++) {
-
-				dgvMatriz->Rows->Add();
-			}
-		}
-		
 		
 		private: System::Void MoverColas_Click(System::Object^ sender, System::EventArgs^ e) {
 
+		
+			if (MoverENpila->Checked == true)
+			{
+				MessageBox::Show("Debe seleccionar la opcion COLA si quiere usar este movimineto"
+					, "Error"
+					, MessageBoxButtons::OK
+					, MessageBoxIcon::Exclamation);
+			}
+			else if (MoverENcola->Checked == false)
+			{
+				MessageBox::Show("No se selecciono niguna opción"
+					, "Error"
+					, MessageBoxButtons::OK
+					, MessageBoxIcon::Exclamation);
+			}
+			else if (MoverENcola->Checked == true) {
+
+				int Origen = Convert::ToInt32(ColumnAmover->Text);
+			
+				if (Origen == 1) {
+
+					//Node* temp = milist->ExtractAtStart();
+					//milist->InsertAtEnd();
+
+				}
+				else if (Origen == 2){
+
+
+
+				}
+				else if (Origen == 3) {
+
+
+
+				}
+				else if (Origen == 4) {
+
+
+
+				}
+				else if (Origen == 5) {
+
+
+
+				}
+				else if (Origen == 6) {
+
+
+
+				}
+				else if (Origen == 7) {
+
+
+
+				}
+				else if (Origen == 8) {
+
+
+
+				}
+
+			}
+
 		}
 		
+		private: System::Void MoverPilas_Click(System::Object^ sender, System::EventArgs^ e) {
+
+			if (MoverENcola->Checked == true)
+			{
+				MessageBox::Show("Debe seleccionar unicamente la opcion PILA si quiere usar este movimineto"
+					, "Error"
+					, MessageBoxButtons::OK
+					, MessageBoxIcon::Exclamation);
+			}
+			else if (MoverENpila->Checked == false)
+			{
+				MessageBox::Show("No se selecciono niguna opción"
+					, "Error"
+					, MessageBoxButtons::OK
+					, MessageBoxIcon::Exclamation);
+			}
+			else if (MoverENpila->Checked == true) {
+
+
+			}
+
+		}
+
 		private: System::Void GuardarJuego_Click(System::Object^ sender, System::EventArgs^ e) {
 
 			if ((dgvMatriz->Columns->Count > 0) && (dgvMatriz->Rows->Count > 0)) {
@@ -1044,11 +1044,11 @@ namespace Proyecto1HansSempe1083920 {
 							else
 								if (nullptr == dgvMatriz->Rows[i]->Cells[j]->Value)
 								{
-									linea += ""+"";
+									linea += "" + "";
 								}
 								else {
 									linea += "" + dgvMatriz->Rows[i]->Cells[j]->Value + ",";
-								}						
+								}
 						}
 					}
 
@@ -1073,11 +1073,8 @@ namespace Proyecto1HansSempe1083920 {
 
 
 
-
-
 private: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
 }
-
 
 };
 }

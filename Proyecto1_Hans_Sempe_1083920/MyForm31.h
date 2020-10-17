@@ -35,11 +35,95 @@ namespace Proyecto1HansSempe1083920 {
 			}
 		}
 
+	protected:
+
+	protected:
+
+
+	protected:
+
+
+
+
+	protected:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	private: System::ComponentModel::IContainer^ components;
+
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -48,11 +132,17 @@ namespace Proyecto1HansSempe1083920 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"MyForm3";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->SuspendLayout();
+			// 
+			// MyForm3
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(685, 307);
+			this->Name = L"MyForm3";
+			this->Text = L"MyForm3";
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 	};

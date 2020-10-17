@@ -1,6 +1,6 @@
 #include "MyForm1.h";
 #include "MyForm2.h";
-#include "MyForm3.h";
+#include "MyForm4.h";
 #pragma once
 
 namespace Proyecto1HansSempe1083920 {
@@ -46,11 +46,11 @@ namespace Proyecto1HansSempe1083920 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ label2;
+
 	protected:
-	private: System::Windows::Forms::Button^ SeguirD;
-	private: System::Windows::Forms::Button^ SeguirM;
-	private: System::Windows::Forms::Button^ SeguirF;
+
+
+
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ NuevoD;
 	private: System::Windows::Forms::Button^ NuevoM;
@@ -69,70 +69,23 @@ namespace Proyecto1HansSempe1083920 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->SeguirD = (gcnew System::Windows::Forms::Button());
-			this->SeguirM = (gcnew System::Windows::Forms::Button());
-			this->SeguirF = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->NuevoD = (gcnew System::Windows::Forms::Button());
 			this->NuevoM = (gcnew System::Windows::Forms::Button());
 			this->NuevoF = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(290, 9);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(177, 32);
-			this->label2->TabIndex = 17;
-			this->label2->Text = L"Seguir Juego";
-			// 
-			// SeguirD
-			// 
-			this->SeguirD->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->SeguirD->Location = System::Drawing::Point(277, 137);
-			this->SeguirD->Name = L"SeguirD";
-			this->SeguirD->Size = System::Drawing::Size(209, 38);
-			this->SeguirD->TabIndex = 16;
-			this->SeguirD->Text = L"Difícil";
-			this->SeguirD->UseVisualStyleBackColor = true;
-			// 
-			// SeguirM
-			// 
-			this->SeguirM->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->SeguirM->Location = System::Drawing::Point(277, 93);
-			this->SeguirM->Name = L"SeguirM";
-			this->SeguirM->Size = System::Drawing::Size(209, 38);
-			this->SeguirM->TabIndex = 15;
-			this->SeguirM->Text = L"Medio";
-			this->SeguirM->UseVisualStyleBackColor = true;
-			// 
-			// SeguirF
-			// 
-			this->SeguirF->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->SeguirF->Location = System::Drawing::Point(277, 49);
-			this->SeguirF->Name = L"SeguirF";
-			this->SeguirF->Size = System::Drawing::Size(209, 38);
-			this->SeguirF->TabIndex = 14;
-			this->SeguirF->Text = L"Fácil";
-			this->SeguirF->UseVisualStyleBackColor = true;
-			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(31, 9);
+			this->label1->ForeColor = System::Drawing::Color::White;
+			this->label1->Location = System::Drawing::Point(79, 14);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(177, 32);
+			this->label1->Size = System::Drawing::Size(83, 32);
 			this->label1->TabIndex = 13;
-			this->label1->Text = L"Juego Nuevo";
+			this->label1->Text = L"Jugar";
 			// 
 			// NuevoD
 			// 
@@ -174,11 +127,8 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(496, 187);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->SeguirD);
-			this->Controls->Add(this->SeguirM);
-			this->Controls->Add(this->SeguirF);
+			this->BackColor = System::Drawing::Color::Black;
+			this->ClientSize = System::Drawing::Size(234, 187);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->NuevoD);
 			this->Controls->Add(this->NuevoM);
@@ -193,24 +143,23 @@ namespace Proyecto1HansSempe1083920 {
 
 #pragma endregion
 
-
 	private: System::Void NuevoF_Click_1(System::Object^ sender, System::EventArgs^ e) {
 		MyForm1^ miNuevaVentana = gcnew MyForm1();
 		miNuevaVentana->ShowDialog();
 	}
-
 	
 	private: System::Void NuevoM_Click_1(System::Object^ sender, System::EventArgs^ e) {
 		MyForm2^ miNuevaVentana2 = gcnew MyForm2();
 		miNuevaVentana2->ShowDialog();
 	}
 
-
-	private: System::Void NuevoD_Click_1(System::Object^ sender, System::EventArgs^ e) {
-		MyForm3^ miNuevaVentana3 = gcnew MyForm3();
-		miNuevaVentana3->ShowDialog();
+	private: System::Void NuevoD_Click_1(System::Object^ sender, System::EventArgs^ e) {		
+		MyForm4^ miNuevaVentana4 = gcnew MyForm4();
+		miNuevaVentana4->ShowDialog();
 	}
 
-
-};
+    };
 }
+
+
+
