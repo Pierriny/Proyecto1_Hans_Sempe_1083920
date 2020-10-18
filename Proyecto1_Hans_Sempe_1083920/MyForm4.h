@@ -170,6 +170,7 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			// AbrirJuego
 			// 
+			this->AbrirJuego->BackColor = System::Drawing::Color::White;
 			this->AbrirJuego->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->AbrirJuego->Location = System::Drawing::Point(12, 12);
@@ -177,7 +178,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->AbrirJuego->Size = System::Drawing::Size(182, 46);
 			this->AbrirJuego->TabIndex = 0;
 			this->AbrirJuego->Text = L"Importar Datos";
-			this->AbrirJuego->UseVisualStyleBackColor = true;
+			this->AbrirJuego->UseVisualStyleBackColor = false;
 			this->AbrirJuego->Click += gcnew System::EventHandler(this, &MyForm4::AbrirJuego_Click);
 			// 
 			// text
@@ -267,6 +268,7 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			// RecuerdaGuardar
 			// 
+			this->RecuerdaGuardar->BackColor = System::Drawing::Color::White;
 			this->RecuerdaGuardar->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->RecuerdaGuardar->Location = System::Drawing::Point(751, 379);
@@ -274,11 +276,12 @@ namespace Proyecto1HansSempe1083920 {
 			this->RecuerdaGuardar->Size = System::Drawing::Size(75, 23);
 			this->RecuerdaGuardar->TabIndex = 73;
 			this->RecuerdaGuardar->Text = L"Guardar";
-			this->RecuerdaGuardar->UseVisualStyleBackColor = true;
+			this->RecuerdaGuardar->UseVisualStyleBackColor = false;
 			this->RecuerdaGuardar->Click += gcnew System::EventHandler(this, &MyForm4::RecuerdaGuardar_Click);
 			// 
 			// MOVEenPILA
 			// 
+			this->MOVEenPILA->BackColor = System::Drawing::Color::White;
 			this->MOVEenPILA->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->MOVEenPILA->Location = System::Drawing::Point(42, 174);
@@ -286,11 +289,12 @@ namespace Proyecto1HansSempe1083920 {
 			this->MOVEenPILA->Size = System::Drawing::Size(152, 32);
 			this->MOVEenPILA->TabIndex = 74;
 			this->MOVEenPILA->Text = L"MOVER";
-			this->MOVEenPILA->UseVisualStyleBackColor = true;
+			this->MOVEenPILA->UseVisualStyleBackColor = false;
 			this->MOVEenPILA->Click += gcnew System::EventHandler(this, &MyForm4::MOVEenPILA_Click);
 			// 
 			// MOVEenCOLA
 			// 
+			this->MOVEenCOLA->BackColor = System::Drawing::Color::White;
 			this->MOVEenCOLA->Font = (gcnew System::Drawing::Font(L"Arial", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->MOVEenCOLA->Location = System::Drawing::Point(641, 174);
@@ -298,7 +302,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->MOVEenCOLA->Size = System::Drawing::Size(152, 32);
 			this->MOVEenCOLA->TabIndex = 75;
 			this->MOVEenCOLA->Text = L"MOVER";
-			this->MOVEenCOLA->UseVisualStyleBackColor = true;
+			this->MOVEenCOLA->UseVisualStyleBackColor = false;
 			this->MOVEenCOLA->Click += gcnew System::EventHandler(this, &MyForm4::MOVEenCOLA_Click_1);
 			// 
 			// label2
@@ -364,7 +368,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->Controls->Add(this->text);
 			this->Controls->Add(this->AbrirJuego);
 			this->Name = L"MyForm4";
-			this->Text = L"MyForm4";
+			this->Text = L"url";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Matriz))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();

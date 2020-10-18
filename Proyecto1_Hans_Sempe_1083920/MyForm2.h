@@ -237,6 +237,7 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			// Mp
 			// 
+			this->Mp->BackColor = System::Drawing::Color::White;
 			this->Mp->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Mp->Location = System::Drawing::Point(42, 163);
@@ -244,7 +245,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->Mp->Size = System::Drawing::Size(152, 32);
 			this->Mp->TabIndex = 62;
 			this->Mp->Text = L"Mover";
-			this->Mp->UseVisualStyleBackColor = true;
+			this->Mp->UseVisualStyleBackColor = false;
 			this->Mp->Click += gcnew System::EventHandler(this, &MyForm2::Mp_Click);
 			// 
 			// PilaD2
@@ -305,6 +306,7 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			// importarDatos2
 			// 
+			this->importarDatos2->BackColor = System::Drawing::Color::White;
 			this->importarDatos2->Font = (gcnew System::Drawing::Font(L"Arial Black", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->importarDatos2->Location = System::Drawing::Point(12, 12);
@@ -312,7 +314,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->importarDatos2->Size = System::Drawing::Size(182, 46);
 			this->importarDatos2->TabIndex = 47;
 			this->importarDatos2->Text = L"Importar Datos";
-			this->importarDatos2->UseVisualStyleBackColor = true;
+			this->importarDatos2->UseVisualStyleBackColor = false;
 			this->importarDatos2->Click += gcnew System::EventHandler(this, &MyForm2::importarDatos2_Click);
 			// 
 			// dgvMatriz2
@@ -348,6 +350,7 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			// GelJuego2
 			// 
+			this->GelJuego2->BackColor = System::Drawing::Color::White;
 			this->GelJuego2->Font = (gcnew System::Drawing::Font(L"Arial", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->GelJuego2->Location = System::Drawing::Point(763, 398);
@@ -355,11 +358,12 @@ namespace Proyecto1HansSempe1083920 {
 			this->GelJuego2->Size = System::Drawing::Size(75, 23);
 			this->GelJuego2->TabIndex = 67;
 			this->GelJuego2->Text = L"Guardar";
-			this->GelJuego2->UseVisualStyleBackColor = true;
+			this->GelJuego2->UseVisualStyleBackColor = false;
 			this->GelJuego2->Click += gcnew System::EventHandler(this, &MyForm2::GelJuego2_Click);
 			// 
 			// Mc
 			// 
+			this->Mc->BackColor = System::Drawing::Color::White;
 			this->Mc->Font = (gcnew System::Drawing::Font(L"Arial Black", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Mc->Location = System::Drawing::Point(651, 171);
@@ -367,7 +371,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->Mc->Size = System::Drawing::Size(152, 30);
 			this->Mc->TabIndex = 68;
 			this->Mc->Text = L"Mover";
-			this->Mc->UseVisualStyleBackColor = true;
+			this->Mc->UseVisualStyleBackColor = false;
 			this->Mc->Click += gcnew System::EventHandler(this, &MyForm2::Mc_Click);
 			// 
 			// label1

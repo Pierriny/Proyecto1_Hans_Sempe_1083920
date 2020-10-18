@@ -38,6 +38,7 @@ List::List() {
 //Insert Operations
 
 void List::InsertAtStart(int value) {
+
 	Node* new_node = new Node();
 	new_node->value = value;
 
@@ -296,6 +297,7 @@ void List::InsertAtEnd8(int value) {
 //Extract operation
 
 Node* List::ExtractAtStart() {
+
 	Node* temp = start;
 	if (!isEmpty()) {
 		start = start->next;

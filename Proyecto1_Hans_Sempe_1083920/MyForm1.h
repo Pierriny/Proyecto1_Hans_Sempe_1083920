@@ -25,6 +25,19 @@ namespace Proyecto1HansSempe1083920 {
 		List* milist5;
 		List* milist6;
 		List* milist7;
+	private: System::Windows::Forms::ListBox^ IstLista;
+	private: System::Windows::Forms::Button^ Llenar;
+
+	private: System::Windows::Forms::TextBox^ num_fila;
+	private: System::Windows::Forms::TextBox^ Num_Columnas;
+
+
+	private: System::Windows::Forms::Label^ label;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label2;
+	public:
+
+	public:
 		List* milist8;
 
 
@@ -131,6 +144,9 @@ namespace Proyecto1HansSempe1083920 {
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
+		int XX;
+		int YY;
+
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Método necesario para admitir el Diseñador. No se puede modificar
@@ -160,34 +176,42 @@ namespace Proyecto1HansSempe1083920 {
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->sfdExportar = (gcnew System::Windows::Forms::SaveFileDialog());
+			this->IstLista = (gcnew System::Windows::Forms::ListBox());
+			this->Llenar = (gcnew System::Windows::Forms::Button());
+			this->num_fila = (gcnew System::Windows::Forms::TextBox());
+			this->Num_Columnas = (gcnew System::Windows::Forms::TextBox());
+			this->label = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvMatriz))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// txtPath
 			// 
-			this->txtPath->Location = System::Drawing::Point(201, 28);
+			this->txtPath->Location = System::Drawing::Point(606, 60);
 			this->txtPath->Name = L"txtPath";
-			this->txtPath->Size = System::Drawing::Size(637, 20);
+			this->txtPath->Size = System::Drawing::Size(219, 20);
 			this->txtPath->TabIndex = 23;
 			// 
 			// importarDatos
 			// 
+			this->importarDatos->BackColor = System::Drawing::Color::White;
 			this->importarDatos->Font = (gcnew System::Drawing::Font(L"Arial Black", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->importarDatos->Location = System::Drawing::Point(13, 12);
+			this->importarDatos->Location = System::Drawing::Point(418, 38);
 			this->importarDatos->Name = L"importarDatos";
-			this->importarDatos->Size = System::Drawing::Size(182, 46);
+			this->importarDatos->Size = System::Drawing::Size(182, 58);
 			this->importarDatos->TabIndex = 22;
 			this->importarDatos->Text = L"Importar Datos";
-			this->importarDatos->UseVisualStyleBackColor = true;
+			this->importarDatos->UseVisualStyleBackColor = false;
 			this->importarDatos->Click += gcnew System::EventHandler(this, &MyForm1::importarDatos_Click_1);
 			// 
 			// dgvMatriz
 			// 
 			this->dgvMatriz->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvMatriz->Location = System::Drawing::Point(246, 81);
+			this->dgvMatriz->Location = System::Drawing::Point(246, 136);
 			this->dgvMatriz->Name = L"dgvMatriz";
-			this->dgvMatriz->Size = System::Drawing::Size(340, 340);
+			this->dgvMatriz->Size = System::Drawing::Size(343, 282);
 			this->dgvMatriz->TabIndex = 16;
 			// 
 			// ofdImportar
@@ -200,7 +224,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->MoverENpila->Font = (gcnew System::Drawing::Font(L"Arial", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->MoverENpila->ForeColor = System::Drawing::Color::White;
-			this->MoverENpila->Location = System::Drawing::Point(85, 81);
+			this->MoverENpila->Location = System::Drawing::Point(88, 122);
 			this->MoverENpila->Name = L"MoverENpila";
 			this->MoverENpila->Size = System::Drawing::Size(63, 26);
 			this->MoverENpila->TabIndex = 24;
@@ -213,7 +237,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->MoverENcola->Font = (gcnew System::Drawing::Font(L"Arial", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->MoverENcola->ForeColor = System::Drawing::Color::White;
-			this->MoverENcola->Location = System::Drawing::Point(685, 81);
+			this->MoverENcola->Location = System::Drawing::Point(687, 122);
 			this->MoverENcola->Name = L"MoverENcola";
 			this->MoverENcola->Size = System::Drawing::Size(71, 26);
 			this->MoverENcola->TabIndex = 25;
@@ -224,21 +248,22 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			this->ColumnAmover->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->ColumnAmover->Location = System::Drawing::Point(632, 215);
+			this->ColumnAmover->Location = System::Drawing::Point(630, 231);
 			this->ColumnAmover->Name = L"ColumnAmover";
 			this->ColumnAmover->Size = System::Drawing::Size(184, 26);
 			this->ColumnAmover->TabIndex = 26;
 			// 
 			// MoverColas
 			// 
+			this->MoverColas->BackColor = System::Drawing::Color::White;
 			this->MoverColas->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->MoverColas->Location = System::Drawing::Point(648, 247);
+			this->MoverColas->Location = System::Drawing::Point(646, 263);
 			this->MoverColas->Name = L"MoverColas";
 			this->MoverColas->Size = System::Drawing::Size(152, 32);
 			this->MoverColas->TabIndex = 27;
 			this->MoverColas->Text = L"Mover";
-			this->MoverColas->UseVisualStyleBackColor = true;
+			this->MoverColas->UseVisualStyleBackColor = false;
 			this->MoverColas->Click += gcnew System::EventHandler(this, &MyForm1::MoverColas_Click);
 			// 
 			// label3
@@ -247,7 +272,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->label3->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::White;
-			this->label3->Location = System::Drawing::Point(601, 110);
+			this->label3->Location = System::Drawing::Point(603, 151);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(228, 16);
 			this->label3->TabIndex = 28;
@@ -255,6 +280,7 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			// GuardarJuego
 			// 
+			this->GuardarJuego->BackColor = System::Drawing::Color::White;
 			this->GuardarJuego->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->GuardarJuego->Location = System::Drawing::Point(763, 398);
@@ -262,7 +288,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->GuardarJuego->Size = System::Drawing::Size(75, 23);
 			this->GuardarJuego->TabIndex = 29;
 			this->GuardarJuego->Text = L"Guardar";
-			this->GuardarJuego->UseVisualStyleBackColor = true;
+			this->GuardarJuego->UseVisualStyleBackColor = false;
 			this->GuardarJuego->Click += gcnew System::EventHandler(this, &MyForm1::GuardarJuego_Click);
 			// 
 			// label4
@@ -271,7 +297,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->label4->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(601, 126);
+			this->label4->Location = System::Drawing::Point(603, 167);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(246, 16);
 			this->label4->TabIndex = 30;
@@ -283,7 +309,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->label5->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label5->ForeColor = System::Drawing::Color::White;
-			this->label5->Location = System::Drawing::Point(601, 142);
+			this->label5->Location = System::Drawing::Point(603, 183);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(147, 16);
 			this->label5->TabIndex = 31;
@@ -295,7 +321,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->label6->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::Color::White;
-			this->label6->Location = System::Drawing::Point(6, 142);
+			this->label6->Location = System::Drawing::Point(9, 183);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(171, 16);
 			this->label6->TabIndex = 34;
@@ -307,7 +333,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->label7->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label7->ForeColor = System::Drawing::Color::White;
-			this->label7->Location = System::Drawing::Point(6, 126);
+			this->label7->Location = System::Drawing::Point(9, 167);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(213, 16);
 			this->label7->TabIndex = 33;
@@ -319,7 +345,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->label8->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label8->ForeColor = System::Drawing::Color::White;
-			this->label8->Location = System::Drawing::Point(6, 110);
+			this->label8->Location = System::Drawing::Point(9, 151);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(232, 16);
 			this->label8->TabIndex = 32;
@@ -327,28 +353,29 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			// PilaO
 			// 
-			this->PilaO->Location = System::Drawing::Point(13, 221);
+			this->PilaO->Location = System::Drawing::Point(15, 237);
 			this->PilaO->Name = L"PilaO";
 			this->PilaO->Size = System::Drawing::Size(100, 20);
 			this->PilaO->TabIndex = 35;
 			// 
 			// PilaD
 			// 
-			this->PilaD->Location = System::Drawing::Point(129, 221);
+			this->PilaD->Location = System::Drawing::Point(131, 237);
 			this->PilaD->Name = L"PilaD";
 			this->PilaD->Size = System::Drawing::Size(100, 20);
 			this->PilaD->TabIndex = 36;
 			// 
 			// MoverPilas
 			// 
+			this->MoverPilas->BackColor = System::Drawing::Color::White;
 			this->MoverPilas->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->MoverPilas->Location = System::Drawing::Point(42, 247);
+			this->MoverPilas->Location = System::Drawing::Point(44, 263);
 			this->MoverPilas->Name = L"MoverPilas";
 			this->MoverPilas->Size = System::Drawing::Size(152, 32);
 			this->MoverPilas->TabIndex = 37;
 			this->MoverPilas->Text = L"Mover";
-			this->MoverPilas->UseVisualStyleBackColor = true;
+			this->MoverPilas->UseVisualStyleBackColor = false;
 			this->MoverPilas->Click += gcnew System::EventHandler(this, &MyForm1::MoverPilas_Click);
 			// 
 			// label9
@@ -357,7 +384,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->label9->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label9->ForeColor = System::Drawing::Color::White;
-			this->label9->Location = System::Drawing::Point(30, 202);
+			this->label9->Location = System::Drawing::Point(32, 218);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(58, 16);
 			this->label9->TabIndex = 38;
@@ -369,7 +396,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->label10->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label10->ForeColor = System::Drawing::Color::White;
-			this->label10->Location = System::Drawing::Point(149, 202);
+			this->label10->Location = System::Drawing::Point(151, 218);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(61, 16);
 			this->label10->TabIndex = 39;
@@ -381,11 +408,76 @@ namespace Proyecto1HansSempe1083920 {
 			this->label11->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label11->ForeColor = System::Drawing::Color::White;
-			this->label11->Location = System::Drawing::Point(673, 196);
+			this->label11->Location = System::Drawing::Point(671, 212);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(92, 16);
 			this->label11->TabIndex = 40;
 			this->label11->Text = L"Columna a mover";
+			// 
+			// IstLista
+			// 
+			this->IstLista->FormattingEnabled = true;
+			this->IstLista->Location = System::Drawing::Point(31, 352);
+			this->IstLista->Name = L"IstLista";
+			this->IstLista->Size = System::Drawing::Size(120, 69);
+			this->IstLista->TabIndex = 41;
+			// 
+			// Llenar
+			// 
+			this->Llenar->BackColor = System::Drawing::Color::White;
+			this->Llenar->Font = (gcnew System::Drawing::Font(L"Arial Black", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Llenar->Location = System::Drawing::Point(147, 21);
+			this->Llenar->Name = L"Llenar";
+			this->Llenar->Size = System::Drawing::Size(93, 95);
+			this->Llenar->TabIndex = 42;
+			this->Llenar->Text = L"Crear  tabla";
+			this->Llenar->UseVisualStyleBackColor = false;
+			this->Llenar->Click += gcnew System::EventHandler(this, &MyForm1::Llenar_Click);
+			// 
+			// num_fila
+			// 
+			this->num_fila->Location = System::Drawing::Point(246, 26);
+			this->num_fila->Name = L"num_fila";
+			this->num_fila->Size = System::Drawing::Size(154, 20);
+			this->num_fila->TabIndex = 43;
+			// 
+			// Num_Columnas
+			// 
+			this->Num_Columnas->Location = System::Drawing::Point(246, 83);
+			this->Num_Columnas->Name = L"Num_Columnas";
+			this->Num_Columnas->Size = System::Drawing::Size(154, 20);
+			this->Num_Columnas->TabIndex = 44;
+			// 
+			// label
+			// 
+			this->label->AutoSize = true;
+			this->label->BackColor = System::Drawing::Color::White;
+			this->label->Location = System::Drawing::Point(280, 7);
+			this->label->Name = L"label";
+			this->label->Size = System::Drawing::Size(80, 13);
+			this->label->TabIndex = 45;
+			this->label->Text = L"Numero de filas";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::White;
+			this->label1->Location = System::Drawing::Point(277, 67);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(107, 13);
+			this->label1->TabIndex = 46;
+			this->label1->Text = L"Numero de columnas";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->ForeColor = System::Drawing::Color::White;
+			this->label2->Location = System::Drawing::Point(12, 41);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(132, 39);
+			this->label2->TabIndex = 47;
+			this->label2->Text = L"Antes de jugar, debe crear\r\nel espacio suficiente \r\npara jugar\r\n";
 			// 
 			// MyForm1
 			// 
@@ -393,6 +485,13 @@ namespace Proyecto1HansSempe1083920 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Black;
 			this->ClientSize = System::Drawing::Size(846, 430);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->label);
+			this->Controls->Add(this->Num_Columnas);
+			this->Controls->Add(this->num_fila);
+			this->Controls->Add(this->Llenar);
+			this->Controls->Add(this->IstLista);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label9);
@@ -432,19 +531,28 @@ namespace Proyecto1HansSempe1083920 {
 			dgvMatriz->RowHeadersVisible = false;
 		};
 		
-		private: System::Void importarDatos_Click_1(System::Object^ sender, System::EventArgs^ e) {			
+		private: System::Void importarDatos_Click_1(System::Object^ sender, System::EventArgs^ e) {	
+
+			int Prueba_F = Convert::ToInt32(num_fila->Text);
+			int Prueba_C = Convert::ToInt32(Num_Columnas->Text);
+
 			ofdImportar->Filter = "Archivos separados por coma (txt) | *.txt";
 			ofdImportar->FileName = "";
 			if (ofdImportar->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
-				ReestablecerMatriz();
-				array<String^>^ archivo_game_Complete = File::ReadAllLines(ofdImportar->FileName);
-				if (archivo_game_Complete->Length > 0)
+				//ReestablecerMatriz();
+				array<String^>^ Game = File::ReadAllLines(ofdImportar->FileName);
+				if (Game->Length > 0)
 				{
-					array<String^>^ archivo_game_Line = archivo_game_Complete[0]->Split(',');
-					array<String^>^ archivo_game_Column = archivo_game_Complete[0]->Split('X');
-					if (archivo_game_Line->Length > 0)
+
+					array<String^>^ Lineas= Game[0]->Split(',');
+					array<String^>^ Columnas = Game[0]->Split('X');
+
+					XX = Columnas->Length;
+					YY = (Lineas->Length / Columnas->Length) - 1;
+
+					if (Lineas->Length > 0)
 					{
-						int cant_columnas = archivo_game_Column->Length;
+						int cant_columnas = Columnas->Length;
 						for (int i = 0; i < cant_columnas; i++)
 						{
 							DataGridViewColumn^ New_Column = gcnew DataGridViewColumn();
@@ -453,15 +561,17 @@ namespace Proyecto1HansSempe1083920 {
 							New_Column->CellTemplate = Cell_Templete;
 							dgvMatriz->Columns->Add(New_Column);
 						}
-						for (int i = 0; i < (archivo_game_Line->Length / archivo_game_Column->Length) - 1; i++)
+						for (int i = 0; i < (Lineas->Length / Columnas->Length) - 1; i++)
 						{
 							dgvMatriz->Rows->Add();
 						}
 						bool x_Salto = false;
-						for (int i = 1; i < archivo_game_Column->Length;)
+
+
+						for (int i = 1; i < Columnas->Length;)
 						{
 							int j;
-							for (j = 0; j < archivo_game_Line->Length; j++)
+							for (j = 0; j < Lineas->Length; j++)
 							{
 								if (x_Salto == true)
 								{
@@ -470,55 +580,62 @@ namespace Proyecto1HansSempe1083920 {
 								if (i == 1)
 								{
 									int temp_Val;
-									if (archivo_game_Line[j] == "B")
+									if (Lineas[j] == "B")
 									{
 										temp_Val = 1;
 										milist->InsertAtStart(temp_Val);
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Z")
+									else if (Lineas[j] == "Z")
 									{
 										temp_Val = 2;
 										milist->InsertAtStart(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "W")
+									else if (Lineas[j] == "W")
 									{
 										temp_Val = 3;
 										milist->InsertAtStart(temp_Val);
+									
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "R")
+									else if (Lineas[j] == "R")
 									{
 										temp_Val = 4;
 										milist->InsertAtStart(temp_Val);
+									
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Y")
+									else if (Lineas[j] == "Y")
 									{
 										temp_Val = 5;
 										milist->InsertAtStart(temp_Val);
+									
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "G")
+									else if (Lineas[j] == "G")
 									{
 										temp_Val = 6;
 										milist->InsertAtStart(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "P")
+									else if (Lineas[j] == "P")
 									{
 										temp_Val = 7;
 										milist->InsertAtStart(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "N")
+									else if (Lineas[j] == "N")
 									{
 										temp_Val = 8;
 										milist->InsertAtStart(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "X")
+									else if (Lineas[j] == "X")
 									{
 										x_Salto = true;
 									}
@@ -527,55 +644,63 @@ namespace Proyecto1HansSempe1083920 {
 								if (i == 2)
 								{
 									int temp_Val;
-									if (archivo_game_Line[j] == "B")
+									if (Lineas[j] == "B")
 									{
 										temp_Val = 1;
 										milist2->InsertAtStart2(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Z")
+									else if (Lineas[j] == "Z")
 									{
 										temp_Val = 2;
 										milist2->InsertAtStart2(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "W")
+									else if (Lineas[j] == "W")
 									{
 										temp_Val = 3;
 										milist2->InsertAtStart2(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "R")
+									else if (Lineas[j] == "R")
 									{
 										temp_Val = 4;
 										milist2->InsertAtStart2(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Y")
+									else if (Lineas[j] == "Y")
 									{
 										temp_Val = 5;
 										milist2->InsertAtStart2(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "G")
+									else if (Lineas[j] == "G")
 									{
 										temp_Val = 6;
 										milist2->InsertAtStart2(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "P")
+									else if (Lineas[j] == "P")
 									{
 										temp_Val = 7;
 										milist2->InsertAtStart2(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "N")
+									else if (Lineas[j] == "N")
 									{
 										temp_Val = 8;
 										milist2->InsertAtStart2(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "X")
+									else if (Lineas[j] == "X")
 									{
 										x_Salto = true;
 									}
@@ -584,55 +709,63 @@ namespace Proyecto1HansSempe1083920 {
 								if (i == 3)
 								{
 									int temp_Val;
-									if (archivo_game_Line[j] == "B")
+									if (Lineas[j] == "B")
 									{
 										temp_Val = 1;
 										milist3->InsertAtStart3(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Z")
+									else if (Lineas[j] == "Z")
 									{
 										temp_Val = 2;
 										milist3->InsertAtStart3(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "W")
+									else if (Lineas[j] == "W")
 									{
 										temp_Val = 3;
 										milist3->InsertAtStart3(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "R")
+									else if (Lineas[j] == "R")
 									{
 										temp_Val = 4;
 										milist3->InsertAtStart3(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Y")
+									else if (Lineas[j] == "Y")
 									{
 										temp_Val = 5;
 										milist3->InsertAtStart3(temp_Val);
+									
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "G")
+									else if (Lineas[j] == "G")
 									{
 										temp_Val = 6;
 										milist3->InsertAtStart3(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "P")
+									else if (Lineas[j] == "P")
 									{
 										temp_Val = 7;
 										milist3->InsertAtStart3(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "N")
+									else if (Lineas[j] == "N")
 									{
 										temp_Val = 8;
 										milist3->InsertAtStart3(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "X")
+									else if (Lineas[j] == "X")
 									{
 										x_Salto = true;
 									}
@@ -640,55 +773,63 @@ namespace Proyecto1HansSempe1083920 {
 								if (i == 4)
 								{
 									int temp_Val;
-									if (archivo_game_Line[j] == "B")
+									if (Lineas[j] == "B")
 									{
 										temp_Val = 1;
 										milist4->InsertAtStart4(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Z")
+									else if (Lineas[j] == "Z")
 									{
 										temp_Val = 2;
 										milist4->InsertAtStart4(temp_Val);
+									
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "W")
+									else if (Lineas[j] == "W")
 									{
 										temp_Val = 3;
 										milist4->InsertAtStart4(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "R")
+									else if (Lineas[j] == "R")
 									{
 										temp_Val = 4;
 										milist4->InsertAtStart4(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Y")
+									else if (Lineas[j] == "Y")
 									{
 										temp_Val = 5;
 										milist4->InsertAtStart4(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "G")
+									else if (Lineas[j] == "G")
 									{
 										temp_Val = 6;
 										milist4->InsertAtStart4(temp_Val);
+							
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "P")
+									else if (Lineas[j] == "P")
 									{
 										temp_Val = 7;
 										milist4->InsertAtStart4(temp_Val);
+								
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "N")
+									else if (Lineas[j] == "N")
 									{
 										temp_Val = 8;
 										milist4->InsertAtStart4(temp_Val);
+									
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "X")
+									else if (Lineas[j] == "X")
 									{
 										x_Salto = true;
 									}
@@ -696,55 +837,63 @@ namespace Proyecto1HansSempe1083920 {
 								if (i == 5)
 								{
 									int temp_Val;
-									if (archivo_game_Line[j] == "B")
+									if (Lineas[j] == "B")
 									{
 										temp_Val = 1;
 										milist5->InsertAtStart5(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Z")
+									else if (Lineas[j] == "Z")
 									{
 										temp_Val = 2;
 										milist5->InsertAtStart5(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "W")
+									else if (Lineas[j] == "W")
 									{
 										temp_Val = 3;
 										milist5->InsertAtStart5(temp_Val);
+								
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "R")
+									else if (Lineas[j] == "R")
 									{
 										temp_Val = 4;
 										milist5->InsertAtStart5(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Y")
+									else if (Lineas[j] == "Y")
 									{
 										temp_Val = 5;
 										milist5->InsertAtStart5(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "G")
+									else if (Lineas[j] == "G")
 									{
 										temp_Val = 6;
 										milist5->InsertAtStart5(temp_Val);
+									
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "P")
+									else if (Lineas[j] == "P")
 									{
 										temp_Val = 7;
 										milist5->InsertAtStart5(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "N")
+									else if (Lineas[j] == "N")
 									{
 										temp_Val = 8;
 										milist5->InsertAtStart5(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "X")
+									else if (Lineas[j] == "X")
 									{
 										x_Salto = true;
 									}
@@ -753,55 +902,63 @@ namespace Proyecto1HansSempe1083920 {
 								if (i == 6)
 								{
 									int temp_Val;
-									if (archivo_game_Line[j] == "B")
+									if (Lineas[j] == "B")
 									{
 										temp_Val = 1;
 										milist6->InsertAtStart6(temp_Val);
+									
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Z")
+									else if (Lineas[j] == "Z")
 									{
 										temp_Val = 2;
 										milist6->InsertAtStart6(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "W")
+									else if (Lineas[j] == "W")
 									{
 										temp_Val = 3;
 										milist6->InsertAtStart6(temp_Val);
+									
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "R")
+									else if (Lineas[j] == "R")
 									{
 										temp_Val = 4;
 										milist6->InsertAtStart6(temp_Val);
+		
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Y")
+									else if (Lineas[j] == "Y")
 									{
 										temp_Val = 5;
 										milist6->InsertAtStart6(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "G")
+									else if (Lineas[j] == "G")
 									{
 										temp_Val = 6;
 										milist6->InsertAtStart6(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "P")
+									else if (Lineas[j] == "P")
 									{
 										temp_Val = 7;
 										milist6->InsertAtStart6(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "N")
+									else if (Lineas[j] == "N")
 									{
 										temp_Val = 8;
 										milist6->InsertAtStart6(temp_Val);
+								
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "X")
+									else if (Lineas[j] == "X")
 									{
 										x_Salto = true;
 									}
@@ -809,55 +966,63 @@ namespace Proyecto1HansSempe1083920 {
 								if (i == 7)
 								{
 									int temp_Val;
-									if (archivo_game_Line[j] == "B")
+									if (Lineas[j] == "B")
 									{
 										temp_Val = 1;
 										milist7->InsertAtStart7(temp_Val);
+								
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Z")
+									else if (Lineas[j] == "Z")
 									{
 										temp_Val = 2;
 										milist7->InsertAtStart7(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "W")
+									else if (Lineas[j] == "W")
 									{
 										temp_Val = 3;
 										milist7->InsertAtStart7(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "R")
+									else if (Lineas[j] == "R")
 									{
 										temp_Val = 4;
 										milist7->InsertAtStart7(temp_Val);
+									
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Y")
+									else if (Lineas[j] == "Y")
 									{
 										temp_Val = 5;
 										milist7->InsertAtStart7(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "G")
+									else if (Lineas[j] == "G")
 									{
 										temp_Val = 6;
 										milist7->InsertAtStart7(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "P")
+									else if (Lineas[j] == "P")
 									{
 										temp_Val = 7;
 										milist7->InsertAtStart7(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "N")
+									else if (Lineas[j] == "N")
 									{
 										temp_Val = 8;
 										milist7->InsertAtStart7(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "X")
+									else if (Lineas[j] == "X")
 									{
 										x_Salto = true;
 									}
@@ -865,55 +1030,63 @@ namespace Proyecto1HansSempe1083920 {
 								if (i == 8)
 								{
 									int temp_Val;
-									if (archivo_game_Line[j] == "B")
+									if (Lineas[j] == "B")
 									{
 										temp_Val = 1;
 										milist8->InsertAtStart8(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Z")
+									else if (Lineas[j] == "Z")
 									{
 										temp_Val = 2;
 										milist8->InsertAtStart8(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "W")
+									else if (Lineas[j] == "W")
 									{
 										temp_Val = 3;
 										milist8->InsertAtStart8(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "R")
+									else if (Lineas[j] == "R")
 									{
 										temp_Val = 4;
 										milist8->InsertAtStart8(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "Y")
+									else if (Lineas[j] == "Y")
 									{
 										temp_Val = 5;
 										milist8->InsertAtStart8(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "G")
+									else if (Lineas[j] == "G")
 									{
 										temp_Val = 6;
 										milist8->InsertAtStart8(temp_Val);
+									
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "P")
+									else if (Lineas[j] == "P")
 									{
 										temp_Val = 7;
 										milist8->InsertAtStart8(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "N")
+									else if (Lineas[j] == "N")
 									{
 										temp_Val = 8;
 										milist8->InsertAtStart8(temp_Val);
+										
 										x_Salto = false;
 									}
-									else if (archivo_game_Line[j] == "X")
+									else if (Lineas[j] == "X")
 									{
 										x_Salto = true;
 									}
@@ -926,16 +1099,18 @@ namespace Proyecto1HansSempe1083920 {
 								}
 							}
 						}
-					}
+					}	
 				}
 			}
 			else {
-				// Si no se selecciona correctamente un elemento entonces falla
 				MessageBox::Show("No se seleccionó ningún archivo"
 					, "Archivo no seleccionado"
 					, MessageBoxButtons::OK
 					, MessageBoxIcon::Exclamation);
 			}
+
+			colorear();
+
 		}
 		
 		private: System::Void MoverColas_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -961,8 +1136,7 @@ namespace Proyecto1HansSempe1083920 {
 			
 				if (Origen == 1) {
 
-					//Node* temp = milist->ExtractAtStart();
-					//milist->InsertAtEnd();
+					Node* ExtractAtEnd();
 
 				}
 				else if (Origen == 2){
@@ -1070,11 +1244,335 @@ namespace Proyecto1HansSempe1083920 {
 
 		}
 
+		void LlenarListBox() {
+		    Node* temp = milist->start;
+		    IstLista->Items->Clear();
+		    while (temp != nullptr) {
+		 	    IstLista->Items->Add(temp->value);
+		 	    temp = temp->next;
+		    }
+	    }
+
+		private: System::Void Llenar_Click(System::Object^ sender, System::EventArgs^ e) {
+			LlenarMatriz();
+		}
+		
+
+		void LlenarMatriz() {
+
+			int F = Convert::ToInt32(num_fila->Text);
+			int C = Convert::ToInt32(Num_Columnas->Text);
+
+			for (int i = 0; i < C; i++) {
+
+				DataGridViewColumn^ nuevacolumna = gcnew DataGridViewColumn();
+				nuevacolumna->Width = 20;
+
+				DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
+				nuevacolumna->CellTemplate = cellTemplate;
+
+				dgvMatriz->Columns->Add(nuevacolumna);
+			}
+
+			for (int i = 1; i < F; i++) {
+				dgvMatriz->Rows->Add();
+			}
+			
+			for (int y = 0; y < C; y++) {
+				for (int d = 0; d < F; d++) {
+					dgvMatriz->Rows[y]->Cells[d]->Style->BackColor = Color::Magenta;
+				}
+			}
+
+			dgvMatriz->ColumnHeadersVisible = false;
+			dgvMatriz->RowHeadersVisible = false;
+
+		}
+
+		void colorear() {
+
+			int Filas = Convert::ToInt32(num_fila->Text);
+			int Columnas = Convert::ToInt32(Num_Columnas->Text);
+
+			if (milist->count != 0) {
+				Node* temp = milist->start;
+				temp = milist->start;
+				int r = Filas-1;
+				while (temp != nullptr) {
+					if (temp->value == 1) {
+						dgvMatriz->Rows[r]->Cells[0]->Style->BackColor = Color::Black;
+					}
+					else if (temp->value == 2) {
+						dgvMatriz->Rows[r]->Cells[0]->Style->BackColor = Color::Blue;
+					}
+					else if (temp->value == 3) {
+						dgvMatriz->Rows[r]->Cells[0]->Style->BackColor = Color::White;
+					}
+					else if (temp->value == 4) {
+						dgvMatriz->Rows[r]->Cells[0]->Style->BackColor = Color::Red;
+					}
+					else if (temp->value == 5) {
+						dgvMatriz->Rows[r]->Cells[0]->Style->BackColor = Color::Yellow;
+					}
+					else if (temp->value == 6) {
+						dgvMatriz->Rows[r]->Cells[0]->Style->BackColor = Color::Green;
+					}
+					else if (temp->value == 7) {
+						dgvMatriz->Rows[r]->Cells[0]->Style->BackColor = Color::Purple;
+					}
+					else if (temp->value == 8) {
+						dgvMatriz->Rows[r]->Cells[0]->Style->BackColor = Color::Navy;
+					}
+					r++;
+					temp = temp->next;
+				}
+			}
+
+			if (milist2->count2 != 0) {
+				Node2* temp2 = milist2->start2;
+				temp2 = milist2->start2;
+				int r = Filas - 1;
+				while (temp2 != nullptr) {
+					if (temp2->value2 == 1) {
+						dgvMatriz->Rows[r]->Cells[1]->Style->BackColor = Color::Black;
+					}
+					else if (temp2->value2 == 2) {
+						dgvMatriz->Rows[r]->Cells[1]->Style->BackColor = Color::Blue;
+					}
+					else if (temp2->value2 == 3) {
+						dgvMatriz->Rows[r]->Cells[1]->Style->BackColor = Color::White;
+					}
+					else if (temp2->value2 == 4) {
+						dgvMatriz->Rows[r]->Cells[1]->Style->BackColor = Color::Red;
+					}
+					else if (temp2->value2 == 5) {
+						dgvMatriz->Rows[r]->Cells[1]->Style->BackColor = Color::Yellow;
+					}
+					else if (temp2->value2 == 6) {
+						dgvMatriz->Rows[r]->Cells[1]->Style->BackColor = Color::Green;
+					}
+					else if (temp2->value2 == 7) {
+						dgvMatriz->Rows[r]->Cells[1]->Style->BackColor = Color::Purple;
+					}
+					else if (temp2->value2 == 8) {
+						dgvMatriz->Rows[r]->Cells[1]->Style->BackColor = Color::Navy;
+					}
+					r++;
+					temp2 = temp2->next2;
+				}
+			}
+
+			if (milist3->count3 != 0) {
+				Node3* temp3 = milist3->start3;
+				temp3 = milist3->start3;
+				int r = Filas - 1;
+				while (temp3 != nullptr) {
+					if (temp3->value3 == 1) {
+						dgvMatriz->Rows[r]->Cells[2]->Style->BackColor = Color::Black;
+					}
+					else if (temp3->value3 == 2) {
+						dgvMatriz->Rows[r]->Cells[2]->Style->BackColor = Color::Blue;
+					}
+					else if (temp3->value3 == 3) {
+						dgvMatriz->Rows[r]->Cells[2]->Style->BackColor = Color::White;
+					}
+					else if (temp3->value3 == 4) {
+						dgvMatriz->Rows[r]->Cells[2]->Style->BackColor = Color::Red;
+					}
+					else if (temp3->value3 == 5) {
+						dgvMatriz->Rows[r]->Cells[2]->Style->BackColor = Color::Yellow;
+					}
+					else if (temp3->value3 == 6) {
+						dgvMatriz->Rows[r]->Cells[2]->Style->BackColor = Color::Green;
+					}
+					else if (temp3->value3 == 7) {
+						dgvMatriz->Rows[r]->Cells[2]->Style->BackColor = Color::Purple;
+					}
+					else if (temp3->value3 == 8) {
+						dgvMatriz->Rows[r]->Cells[2]->Style->BackColor = Color::Navy;
+					}
+					r++;
+					temp3 = temp3->next3;
+				}
+			}
+
+			if (milist4->count4 != 0) {
+				Node4* temp4 = milist4->start4;
+				temp4 = milist4->start4;
+				int r = Filas - 1;
+				while (temp4 != nullptr) {
+					if (temp4->value4 == 1) {
+						dgvMatriz->Rows[r]->Cells[3]->Style->BackColor = Color::Black;
+					}
+					else if (temp4->value4 == 2) {
+						dgvMatriz->Rows[r]->Cells[3]->Style->BackColor = Color::Blue;
+					}
+					else if (temp4->value4 == 3) {
+						dgvMatriz->Rows[r]->Cells[3]->Style->BackColor = Color::White;
+					}
+					else if (temp4->value4 == 4) {
+						dgvMatriz->Rows[r]->Cells[3]->Style->BackColor = Color::Red;
+					}
+					else if (temp4->value4 == 5) {
+						dgvMatriz->Rows[r]->Cells[3]->Style->BackColor = Color::Yellow;
+					}
+					else if (temp4->value4 == 6) {
+						dgvMatriz->Rows[r]->Cells[3]->Style->BackColor = Color::Green;
+					}
+					else if (temp4->value4 == 7) {
+						dgvMatriz->Rows[r]->Cells[3]->Style->BackColor = Color::Purple;
+					}
+					else if (temp4->value4 == 8) {
+						dgvMatriz->Rows[r]->Cells[3]->Style->BackColor = Color::Navy;
+					}
+					r++;
+					temp4 = temp4->next4;
+				}
+			}
+
+			if (milist5->count5 != 0) {
+				Node5* temp5 = milist5->start5;
+				temp5 = milist5->start5;
+				int r = Filas - 1;
+				while (temp5 != nullptr) {
+					if (temp5->value5 == 1) {
+						dgvMatriz->Rows[r]->Cells[4]->Style->BackColor = Color::Black;
+					}
+					else if (temp5->value5 == 2) {
+						dgvMatriz->Rows[r]->Cells[4]->Style->BackColor = Color::Blue;
+					}
+					else if (temp5->value5 == 3) {
+						dgvMatriz->Rows[r]->Cells[4]->Style->BackColor = Color::White;
+					}
+					else if (temp5->value5 == 4) {
+						dgvMatriz->Rows[r]->Cells[4]->Style->BackColor = Color::Red;
+					}
+					else if (temp5->value5 == 5) {
+						dgvMatriz->Rows[r]->Cells[4]->Style->BackColor = Color::Yellow;
+					}
+					else if (temp5->value5 == 6) {
+						dgvMatriz->Rows[r]->Cells[4]->Style->BackColor = Color::Green;
+					}
+					else if (temp5->value5 == 7) {
+						dgvMatriz->Rows[r]->Cells[4]->Style->BackColor = Color::Purple;
+					}
+					else if (temp5->value5 == 8) {
+						dgvMatriz->Rows[r]->Cells[4]->Style->BackColor = Color::Navy;
+					}
+					r++;
+					temp5 = temp5->next5;
+				}
+			}
+
+			if (milist6->count6 != 0) {
+				Node6* temp6 = milist6->start6;
+				temp6 = milist6->start6;
+				int r = Filas - 1;
+				while (temp6 != nullptr) {
+					if (temp6->value6 == 1) {
+						dgvMatriz->Rows[r]->Cells[5]->Style->BackColor = Color::Black;
+					}
+					else if (temp6->value6 == 2) {
+						dgvMatriz->Rows[r]->Cells[5]->Style->BackColor = Color::Blue;
+					}
+					else if (temp6->value6 == 3) {
+						dgvMatriz->Rows[r]->Cells[5]->Style->BackColor = Color::White;
+					}
+					else if (temp6->value6 == 4) {
+						dgvMatriz->Rows[r]->Cells[5]->Style->BackColor = Color::Red;
+					}
+					else if (temp6->value6 == 5) {
+						dgvMatriz->Rows[r]->Cells[5]->Style->BackColor = Color::Yellow;
+					}
+					else if (temp6->value6 == 6) {
+						dgvMatriz->Rows[r]->Cells[5]->Style->BackColor = Color::Green;
+					}
+					else if (temp6->value6 == 7) {
+						dgvMatriz->Rows[r]->Cells[5]->Style->BackColor = Color::Purple;
+					}
+					else if (temp6->value6 == 8) {
+						dgvMatriz->Rows[r]->Cells[5]->Style->BackColor = Color::Navy;
+					}
+					r++;
+					temp6 = temp6->next6;
+				}
+			}
+
+			if (milist7->count7 != 0) {
+				Node7* temp7 = milist7->start7;
+				temp7 = milist7->start7;
+				int r = Filas - 1;
+				while (temp7 != nullptr) {
+					if (temp7->value7 == 1) {
+						dgvMatriz->Rows[r]->Cells[6]->Style->BackColor = Color::Black;
+					}
+					else if (temp7->value7 == 2) {
+						dgvMatriz->Rows[r]->Cells[6]->Style->BackColor = Color::Blue;
+					}
+					else if (temp7->value7 == 3) {
+						dgvMatriz->Rows[r]->Cells[5]->Style->BackColor = Color::White;
+					}
+					else if (temp7->value7 == 4) {
+						dgvMatriz->Rows[r]->Cells[6]->Style->BackColor = Color::Red;
+					}
+					else if (temp7->value7 == 5) {
+						dgvMatriz->Rows[r]->Cells[6]->Style->BackColor = Color::Yellow;
+					}
+					else if (temp7->value7 == 6) {
+						dgvMatriz->Rows[r]->Cells[6]->Style->BackColor = Color::Green;
+					}
+					else if (temp7->value7 == 7) {
+						dgvMatriz->Rows[r]->Cells[6]->Style->BackColor = Color::Purple;
+					}
+					else if (temp7->value7 == 8) {
+						dgvMatriz->Rows[r]->Cells[6]->Style->BackColor = Color::Navy;
+					}
+					r++;
+					temp7 = temp7->next7;
+				}
+			}
+
+			if (milist8->count8 != 0) {
+				Node8* temp8 = milist8->start8;
+				temp8 = milist8->start8;
+				int r = Filas - 1;
+				while (temp8 != nullptr) {
+					if (temp8->value8 == 1) {
+						dgvMatriz->Rows[r]->Cells[7]->Style->BackColor = Color::Black;
+					}
+					else if (temp8->value8 == 2) {
+						dgvMatriz->Rows[r]->Cells[7]->Style->BackColor = Color::Blue;
+					}
+					else if (temp8->value8 == 3) {
+						dgvMatriz->Rows[r]->Cells[7]->Style->BackColor = Color::White;
+					}
+					else if (temp8->value8 == 4) {
+						dgvMatriz->Rows[r]->Cells[7]->Style->BackColor = Color::Red;
+					}
+					else if (temp8->value8 == 5) {
+						dgvMatriz->Rows[r]->Cells[7]->Style->BackColor = Color::Yellow;
+					}
+					else if (temp8->value8 == 6) {
+						dgvMatriz->Rows[r]->Cells[7]->Style->BackColor = Color::Green;
+					}
+					else if (temp8->value8 == 7) {
+						dgvMatriz->Rows[r]->Cells[7]->Style->BackColor = Color::Purple;
+					}
+					else if (temp8->value8 == 8) {
+						dgvMatriz->Rows[r]->Cells[7]->Style->BackColor = Color::Navy;
+					}
+					r++;
+					temp8 = temp8->next8;
+				}
+			}
+		}
+
+
+
 
 
 
 private: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
 }
-
-};
+	};
 }

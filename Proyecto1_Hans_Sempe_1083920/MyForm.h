@@ -89,6 +89,7 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			// NuevoD
 			// 
+			this->NuevoD->BackColor = System::Drawing::Color::White;
 			this->NuevoD->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->NuevoD->Location = System::Drawing::Point(12, 137);
@@ -96,11 +97,12 @@ namespace Proyecto1HansSempe1083920 {
 			this->NuevoD->Size = System::Drawing::Size(209, 38);
 			this->NuevoD->TabIndex = 12;
 			this->NuevoD->Text = L"Difícil";
-			this->NuevoD->UseVisualStyleBackColor = true;
+			this->NuevoD->UseVisualStyleBackColor = false;
 			this->NuevoD->Click += gcnew System::EventHandler(this, &MyForm::NuevoD_Click_1);
 			// 
 			// NuevoM
 			// 
+			this->NuevoM->BackColor = System::Drawing::Color::White;
 			this->NuevoM->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->NuevoM->Location = System::Drawing::Point(12, 93);
@@ -108,11 +110,12 @@ namespace Proyecto1HansSempe1083920 {
 			this->NuevoM->Size = System::Drawing::Size(209, 38);
 			this->NuevoM->TabIndex = 11;
 			this->NuevoM->Text = L"Medio";
-			this->NuevoM->UseVisualStyleBackColor = true;
+			this->NuevoM->UseVisualStyleBackColor = false;
 			this->NuevoM->Click += gcnew System::EventHandler(this, &MyForm::NuevoM_Click_1);
 			// 
 			// NuevoF
 			// 
+			this->NuevoF->BackColor = System::Drawing::Color::White;
 			this->NuevoF->Font = (gcnew System::Drawing::Font(L"Book Antiqua", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->NuevoF->Location = System::Drawing::Point(12, 49);
@@ -120,7 +123,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->NuevoF->Size = System::Drawing::Size(209, 38);
 			this->NuevoF->TabIndex = 10;
 			this->NuevoF->Text = L"Fácil";
-			this->NuevoF->UseVisualStyleBackColor = true;
+			this->NuevoF->UseVisualStyleBackColor = false;
 			this->NuevoF->Click += gcnew System::EventHandler(this, &MyForm::NuevoF_Click_1);
 			// 
 			// MyForm
