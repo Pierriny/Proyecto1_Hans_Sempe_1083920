@@ -29,60 +29,24 @@ namespace Proyecto1HansSempe1083920 {
 
 	public:
 
-		List* milist;
-		List* milist2;
-		List* milist3;
-		List* milist4;
-		List* milist5;
-		List* milist6;
-		List* milist7;
-	
-		   List* milist8;
+		Lista* milist;
+		Lista* milist2;
+		Lista* milist3;
+		Lista* milist4;
+		Lista* milist5;
+		Lista* milist6;
+		Lista* milist7;
+		Lista* milist8;
 
 
 		MyForm4(void)
 		{
 			InitializeComponent();
 			
-			milist = new List();
+			milist = new Lista();
 			milist->count = 0;
 			milist->start = nullptr;
 			milist->end = nullptr;
-
-			milist2 = new List();
-			milist2->count2 = 0;
-			milist2->start2 = nullptr;
-			milist2->end2 = nullptr;
-
-			milist3 = new List();
-			milist3->count3 = 0;
-			milist3->start3 = nullptr;
-			milist3->end3 = nullptr;
-
-			milist4 = new List();
-			milist4->count4 = 0;
-			milist4->start4 = nullptr;
-			milist4->end4 = nullptr;
-
-			milist5 = new List();
-			milist5->count5 = 0;
-			milist5->start5 = nullptr;
-			milist5->end5 = nullptr;
-
-			milist6 = new List();
-			milist6->count6 = 0;
-			milist6->start6 = nullptr;
-			milist6->end6 = nullptr;
-
-			milist7 = new List();
-			milist7->count7 = 0;
-			milist7->start7 = nullptr;
-			milist7->end7 = nullptr;
-
-			milist8 = new List();
-			milist8->count8 = 0;
-			milist8->start8 = nullptr;
-			milist8->end8 = nullptr;
 
 		}
 
@@ -173,7 +137,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->AbrirJuego->BackColor = System::Drawing::Color::White;
 			this->AbrirJuego->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->AbrirJuego->Location = System::Drawing::Point(12, 12);
+			this->AbrirJuego->Location = System::Drawing::Point(250, 10);
 			this->AbrirJuego->Name = L"AbrirJuego";
 			this->AbrirJuego->Size = System::Drawing::Size(182, 46);
 			this->AbrirJuego->TabIndex = 0;
@@ -183,9 +147,9 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			// text
 			// 
-			this->text->Location = System::Drawing::Point(200, 27);
+			this->text->Location = System::Drawing::Point(438, 25);
 			this->text->Name = L"text";
-			this->text->Size = System::Drawing::Size(626, 20);
+			this->text->Size = System::Drawing::Size(388, 20);
 			this->text->TabIndex = 1;
 			// 
 			// checkPILA
@@ -383,11 +347,14 @@ namespace Proyecto1HansSempe1083920 {
 			Matriz->RowHeadersVisible = false;
 		};
 
-		private: System::Void AbrirJuego_Click(System::Object^ sender, System::EventArgs^ e) {
+
+
+	private: System::Void AbrirJuego_Click(System::Object^ sender, System::EventArgs^ e) {
 		ofdImportar3->Filter = "Archivos separados por coma (txt) | *.txt";
 		ofdImportar3->FileName = "";
 		if (ofdImportar3->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			ReestablecerMatriz();
+
 			array<String^>^ archivo_game_Complete = File::ReadAllLines(ofdImportar3->FileName);
 			if (archivo_game_Complete->Length > 0)
 			{
@@ -409,474 +376,7 @@ namespace Proyecto1HansSempe1083920 {
 						Matriz->Rows->Add();
 					}
 					bool x_Salto = false;
-					for (int i = 1; i < archivo_game_Column->Length;)
-					{
-						int j;
-						for (j = 0; j < archivo_game_Line->Length; j++)
-						{
-							if (x_Salto == true)
-							{
-								i++;
-							}
-							if (i == 1)
-							{
-								int temp_Val;
-								if (archivo_game_Line[j] == "B")
-								{
-									temp_Val = 1;
-									milist->InsertAtStart(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Z")
-								{
-									temp_Val = 2;
-									milist->InsertAtStart(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "W")
-								{
-									temp_Val = 3;
-									milist->InsertAtStart(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "R")
-								{
-									temp_Val = 4;
-									milist->InsertAtStart(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Y")
-								{
-									temp_Val = 5;
-									milist->InsertAtStart(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "G")
-								{
-									temp_Val = 6;
-									milist->InsertAtStart(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "P")
-								{
-									temp_Val = 7;
-									milist->InsertAtStart(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "N")
-								{
-									temp_Val = 8;
-									milist->InsertAtStart(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "X")
-								{
-									x_Salto = true;
-								}
 
-							}
-							if (i == 2)
-							{
-								int temp_Val;
-								if (archivo_game_Line[j] == "B")
-								{
-									temp_Val = 1;
-									milist2->InsertAtStart2(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Z")
-								{
-									temp_Val = 2;
-									milist2->InsertAtStart2(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "W")
-								{
-									temp_Val = 3;
-									milist2->InsertAtStart2(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "R")
-								{
-									temp_Val = 4;
-									milist2->InsertAtStart2(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Y")
-								{
-									temp_Val = 5;
-									milist2->InsertAtStart2(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "G")
-								{
-									temp_Val = 6;
-									milist2->InsertAtStart2(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "P")
-								{
-									temp_Val = 7;
-									milist2->InsertAtStart2(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "N")
-								{
-									temp_Val = 8;
-									milist2->InsertAtStart2(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "X")
-								{
-									x_Salto = true;
-								}
-
-							}
-							if (i == 3)
-							{
-								int temp_Val;
-								if (archivo_game_Line[j] == "B")
-								{
-									temp_Val = 1;
-									milist3->InsertAtStart3(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Z")
-								{
-									temp_Val = 2;
-									milist3->InsertAtStart3(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "W")
-								{
-									temp_Val = 3;
-									milist3->InsertAtStart3(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "R")
-								{
-									temp_Val = 4;
-									milist3->InsertAtStart3(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Y")
-								{
-									temp_Val = 5;
-									milist3->InsertAtStart3(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "G")
-								{
-									temp_Val = 6;
-									milist3->InsertAtStart3(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "P")
-								{
-									temp_Val = 7;
-									milist3->InsertAtStart3(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "N")
-								{
-									temp_Val = 8;
-									milist3->InsertAtStart3(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "X")
-								{
-									x_Salto = true;
-								}
-							}
-							if (i == 4)
-							{
-								int temp_Val;
-								if (archivo_game_Line[j] == "B")
-								{
-									temp_Val = 1;
-									milist4->InsertAtStart4(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Z")
-								{
-									temp_Val = 2;
-									milist4->InsertAtStart4(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "W")
-								{
-									temp_Val = 3;
-									milist4->InsertAtStart4(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "R")
-								{
-									temp_Val = 4;
-									milist4->InsertAtStart4(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Y")
-								{
-									temp_Val = 5;
-									milist4->InsertAtStart4(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "G")
-								{
-									temp_Val = 6;
-									milist4->InsertAtStart4(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "P")
-								{
-									temp_Val = 7;
-									milist4->InsertAtStart4(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "N")
-								{
-									temp_Val = 8;
-									milist4->InsertAtStart4(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "X")
-								{
-									x_Salto = true;
-								}
-							}
-							if (i == 5)
-							{
-								int temp_Val;
-								if (archivo_game_Line[j] == "B")
-								{
-									temp_Val = 1;
-									milist5->InsertAtStart5(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Z")
-								{
-									temp_Val = 2;
-									milist5->InsertAtStart5(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "W")
-								{
-									temp_Val = 3;
-									milist5->InsertAtStart5(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "R")
-								{
-									temp_Val = 4;
-									milist5->InsertAtStart5(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Y")
-								{
-									temp_Val = 5;
-									milist5->InsertAtStart5(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "G")
-								{
-									temp_Val = 6;
-									milist5->InsertAtStart5(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "P")
-								{
-									temp_Val = 7;
-									milist5->InsertAtStart5(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "N")
-								{
-									temp_Val = 8;
-									milist5->InsertAtStart5(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "X")
-								{
-									x_Salto = true;
-								}
-
-							}
-							if (i == 6)
-							{
-								int temp_Val;
-								if (archivo_game_Line[j] == "B")
-								{
-									temp_Val = 1;
-									milist6->InsertAtStart6(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Z")
-								{
-									temp_Val = 2;
-									milist6->InsertAtStart6(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "W")
-								{
-									temp_Val = 3;
-									milist6->InsertAtStart6(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "R")
-								{
-									temp_Val = 4;
-									milist6->InsertAtStart6(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Y")
-								{
-									temp_Val = 5;
-									milist6->InsertAtStart6(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "G")
-								{
-									temp_Val = 6;
-									milist6->InsertAtStart6(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "P")
-								{
-									temp_Val = 7;
-									milist6->InsertAtStart6(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "N")
-								{
-									temp_Val = 8;
-									milist6->InsertAtStart6(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "X")
-								{
-									x_Salto = true;
-								}
-							}
-							if (i == 7)
-							{
-								int temp_Val;
-								if (archivo_game_Line[j] == "B")
-								{
-									temp_Val = 1;
-									milist7->InsertAtStart7(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Z")
-								{
-									temp_Val = 2;
-									milist7->InsertAtStart7(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "W")
-								{
-									temp_Val = 3;
-									milist7->InsertAtStart7(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "R")
-								{
-									temp_Val = 4;
-									milist7->InsertAtStart7(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Y")
-								{
-									temp_Val = 5;
-									milist7->InsertAtStart7(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "G")
-								{
-									temp_Val = 6;
-									milist7->InsertAtStart7(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "P")
-								{
-									temp_Val = 7;
-									milist7->InsertAtStart7(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "N")
-								{
-									temp_Val = 8;
-									milist7->InsertAtStart7(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "X")
-								{
-									x_Salto = true;
-								}
-							}
-							if (i == 8)
-							{
-								int temp_Val;
-								if (archivo_game_Line[j] == "B")
-								{
-									temp_Val = 1;
-									milist8->InsertAtStart8(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Z")
-								{
-									temp_Val = 2;
-									milist8->InsertAtStart8(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "W")
-								{
-									temp_Val = 3;
-									milist8->InsertAtStart8(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "R")
-								{
-									temp_Val = 4;
-									milist8->InsertAtStart8(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "Y")
-								{
-									temp_Val = 5;
-									milist8->InsertAtStart8(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "G")
-								{
-									temp_Val = 6;
-									milist8->InsertAtStart8(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "P")
-								{
-									temp_Val = 7;
-									milist8->InsertAtStart8(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "N")
-								{
-									temp_Val = 8;
-									milist8->InsertAtStart8(temp_Val);
-									x_Salto = false;
-								}
-								else if (archivo_game_Line[j] == "X")
-								{
-									x_Salto = true;
-								}
-							}
-							if (i >= 9)
-							{
-								MessageBox::Show("No es valido el archivo seleccionado", "Archivo invalido", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
-								ReestablecerMatriz();
-								break;
-							}
-						}
-					}
 				}
 			}
 		}
@@ -890,225 +390,225 @@ namespace Proyecto1HansSempe1083920 {
 
 
 	}
-		
-		private: System::Void MOVEenPILA_Click(System::Object^ sender, System::EventArgs^ e) {
 
-			if (checkCOLA->Checked == true)
+	private: System::Void MOVEenPILA_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		if (checkCOLA->Checked == true)
+		{
+			MessageBox::Show("Debe seleccionar unicamente la opcion PILA si quiere usar este movimineto"
+				, "Error"
+				, MessageBoxButtons::OK
+				, MessageBoxIcon::Exclamation);
+		}
+		else if (checkPILA->Checked == false)
+		{
+			MessageBox::Show("No se selecciono niguna opción"
+				, "Error"
+				, MessageBoxButtons::OK
+				, MessageBoxIcon::Exclamation);
+		}
+		else if (checkPILA->Checked == true) {
+
+
+		}
+
+
+
+
+
+	}
+
+		   //private: System::Void MOVEenCOLA_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		   //	if (checkPILA->Checked == true)
+		   //	{
+		   //		MessageBox::Show("Debe seleccionar la opcion COLA si quiere usar este movimineto"
+		   //			, "Error"
+		   //			, MessageBoxButtons::OK
+		   //			, MessageBoxIcon::Exclamation);
+		   //	}
+		   //	else if (checkCOLA->Checked == false)
+		   //	{
+		   //		MessageBox::Show("No se selecciono niguna opción"
+		   //			, "Error"
+		   //			, MessageBoxButtons::OK
+		   //			, MessageBoxIcon::Exclamation);
+		   //	}
+		   //	else if (checkCOLA->Checked == true) {
+
+		   //		int Origen = Convert::ToInt32(textaCola->Text);
+
+		   //		if (Origen == 1) {
+
+		   //			//Node* temp = milist->ExtractAtStart();
+		   //			//milist->InsertAtEnd();
+
+		   //		}
+		   //		else if (Origen == 2) {
+
+
+
+		   //		}
+		   //		else if (Origen == 3) {
+
+
+
+		   //		}
+		   //		else if (Origen == 4) {
+
+
+
+		   //		}
+		   //		else if (Origen == 5) {
+
+
+
+		   //		}
+		   //		else if (Origen == 6) {
+
+
+
+		   //		}
+		   //		else if (Origen == 7) {
+
+
+
+		   //		}
+		   //		else if (Origen == 8) {
+
+
+
+		   //		}
+
+		   //	}
+
+		   //}
+
+	private: System::Void timer3_Tick(System::Object^ sender, System::EventArgs^ e) {
+		Second++;
+		if (Second == 60)
+		{
+			Second = 0;
+			Minute++;
+		}
+		Sec = Convert::ToString(Second);
+		Min = Convert::ToString(Minute);
+
+		ItsAboutTime->Text = Min + ":" + Sec;
+	}
+
+	private: System::Void RecuerdaGuardar_Click(System::Object^ sender, System::EventArgs^ e) {
+		if ((Matriz->Columns->Count > 0) && (Matriz->Rows->Count > 0)) {
+			sfdExportar3->Filter = "Archivos separados por coma (txt) | *.txt";
+			if (sfdExportar3->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+
+				//Guardo el contenido del DataGridView en una sola cadena
+				String^ linea = "";
+				for (int i = 0; i < Matriz->Rows->Count; i++) {
+					for (int j = 0; j < Matriz->Columns->Count; j++) {
+						if (j == Matriz->Columns->Count - 1)
+
+							linea += "" + Matriz->Rows[i]->Cells[j]->Value + ",X,";
+						else
+							if (nullptr == Matriz->Rows[i]->Cells[j]->Value)
+							{
+								linea += "" + "";
+							}
+							else {
+								linea += "" + Matriz->Rows[i]->Cells[j]->Value + ",";
+							}
+					}
+				}
+
+				//Utilizo el objeto System::IO::File para guardar el texto
+				//Importante haber llamado al namespace System::IO antes de usar File
+				File::WriteAllText(sfdExportar3->FileName, linea);
+				MessageBox::Show("Archivo guardado exitosamente"
+					, "Operación exitosa"
+					, MessageBoxButtons::OK
+					, MessageBoxIcon::Information);
+			}
+			else {
+				MessageBox::Show("No se exportó el archivo"
+					, "Archivo no seleccionado"
+					, MessageBoxButtons::OK
+					, MessageBoxIcon::Exclamation);
+			}
+		}
+
+	}
+
+
+
+	private: System::Void MOVEenCOLA_Click_1(System::Object^ sender, System::EventArgs^ e) {
+
+		{
+
+			if (checkPILA->Checked == true)
 			{
-				MessageBox::Show("Debe seleccionar unicamente la opcion PILA si quiere usar este movimineto"
+				MessageBox::Show("Debe seleccionar la opcion COLA si quiere usar este movimineto"
 					, "Error"
 					, MessageBoxButtons::OK
 					, MessageBoxIcon::Exclamation);
 			}
-			else if (checkPILA->Checked == false)
+			else if (checkCOLA->Checked == false)
 			{
 				MessageBox::Show("No se selecciono niguna opción"
 					, "Error"
 					, MessageBoxButtons::OK
 					, MessageBoxIcon::Exclamation);
 			}
-			else if (checkPILA->Checked == true) {
+			else if (checkCOLA->Checked == true) {
 
+				int Origen = Convert::ToInt32(textaCola->Text);
 
-			}
+				if (Origen == 1) {
 
+					//Node* temp = milist->ExtractAtStart();
+					//milist->InsertAtEnd();
 
-
-
-
-		}
-
-		//private: System::Void MOVEenCOLA_Click(System::Object^ sender, System::EventArgs^ e) {
-
-		//	if (checkPILA->Checked == true)
-		//	{
-		//		MessageBox::Show("Debe seleccionar la opcion COLA si quiere usar este movimineto"
-		//			, "Error"
-		//			, MessageBoxButtons::OK
-		//			, MessageBoxIcon::Exclamation);
-		//	}
-		//	else if (checkCOLA->Checked == false)
-		//	{
-		//		MessageBox::Show("No se selecciono niguna opción"
-		//			, "Error"
-		//			, MessageBoxButtons::OK
-		//			, MessageBoxIcon::Exclamation);
-		//	}
-		//	else if (checkCOLA->Checked == true) {
-
-		//		int Origen = Convert::ToInt32(textaCola->Text);
-
-		//		if (Origen == 1) {
-
-		//			//Node* temp = milist->ExtractAtStart();
-		//			//milist->InsertAtEnd();
-
-		//		}
-		//		else if (Origen == 2) {
-
-
-
-		//		}
-		//		else if (Origen == 3) {
-
-
-
-		//		}
-		//		else if (Origen == 4) {
-
-
-
-		//		}
-		//		else if (Origen == 5) {
-
-
-
-		//		}
-		//		else if (Origen == 6) {
-
-
-
-		//		}
-		//		else if (Origen == 7) {
-
-
-
-		//		}
-		//		else if (Origen == 8) {
-
-
-
-		//		}
-
-		//	}
-
-		//}
-
-		private: System::Void timer3_Tick(System::Object^ sender, System::EventArgs^ e) {
-			Second++;
-			if (Second == 60)
-			{
-				Second = 0;
-				Minute++;
-			}
-			Sec = Convert::ToString(Second);
-			Min = Convert::ToString(Minute);
-
-			ItsAboutTime->Text = Min + ":" + Sec;
-		}
-
-		private: System::Void RecuerdaGuardar_Click(System::Object^ sender, System::EventArgs^ e) {
-			if ((Matriz->Columns->Count > 0) && (Matriz->Rows->Count > 0)) {
-				sfdExportar3->Filter = "Archivos separados por coma (txt) | *.txt";
-				if (sfdExportar3->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
-
-					//Guardo el contenido del DataGridView en una sola cadena
-					String^ linea = "";
-					for (int i = 0; i < Matriz->Rows->Count; i++) {
-						for (int j = 0; j < Matriz->Columns->Count; j++) {
-							if (j == Matriz->Columns->Count - 1)
-
-								linea += "" + Matriz->Rows[i]->Cells[j]->Value + ",X,";
-							else
-								if (nullptr == Matriz->Rows[i]->Cells[j]->Value)
-								{
-									linea += "" + "";
-								}
-								else {
-									linea += "" + Matriz->Rows[i]->Cells[j]->Value + ",";
-								}
-						}
-					}
-
-					//Utilizo el objeto System::IO::File para guardar el texto
-					//Importante haber llamado al namespace System::IO antes de usar File
-					File::WriteAllText(sfdExportar3->FileName, linea);
-					MessageBox::Show("Archivo guardado exitosamente"
-						, "Operación exitosa"
-						, MessageBoxButtons::OK
-						, MessageBoxIcon::Information);
 				}
-				else {
-					MessageBox::Show("No se exportó el archivo"
-						, "Archivo no seleccionado"
-						, MessageBoxButtons::OK
-						, MessageBoxIcon::Exclamation);
+				else if (Origen == 2) {
+
+
+
 				}
-			}
-
-		}
+				else if (Origen == 3) {
 
 
 
-		private: System::Void MOVEenCOLA_Click_1(System::Object^ sender, System::EventArgs^ e) {
-
-			{
-
-				if (checkPILA->Checked == true)
-				{
-					MessageBox::Show("Debe seleccionar la opcion COLA si quiere usar este movimineto"
-						, "Error"
-						, MessageBoxButtons::OK
-						, MessageBoxIcon::Exclamation);
 				}
-				else if (checkCOLA->Checked == false)
-				{
-					MessageBox::Show("No se selecciono niguna opción"
-						, "Error"
-						, MessageBoxButtons::OK
-						, MessageBoxIcon::Exclamation);
+				else if (Origen == 4) {
+
+
+
 				}
-				else if (checkCOLA->Checked == true) {
-
-					int Origen = Convert::ToInt32(textaCola->Text);
-
-					if (Origen == 1) {
-
-						//Node* temp = milist->ExtractAtStart();
-						//milist->InsertAtEnd();
-
-					}
-					else if (Origen == 2) {
+				else if (Origen == 5) {
 
 
 
-					}
-					else if (Origen == 3) {
+				}
+				else if (Origen == 6) {
 
 
 
-					}
-					else if (Origen == 4) {
+				}
+				else if (Origen == 7) {
 
 
 
-					}
-					else if (Origen == 5) {
+				}
+				else if (Origen == 8) {
 
 
-
-					}
-					else if (Origen == 6) {
-
-
-
-					}
-					else if (Origen == 7) {
-
-
-
-					}
-					else if (Origen == 8) {
-
-
-
-					}
 
 				}
 
 			}
 
-
 		}
-};
+
+
+	}
+	};
 }

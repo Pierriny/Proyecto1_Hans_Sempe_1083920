@@ -30,13 +30,13 @@ namespace Proyecto1HansSempe1083920 {
 	public:
 
 
-		List* milist;
-		List* milist2;
-		List* milist3;
-		List* milist4;
-		List* milist5;
-		List* milist6;
-		List* milist7;
+		Lista* milist;
+		Lista* milist2;
+		Lista* milist3;
+		Lista* milist4;
+		Lista* milist5;
+		Lista* milist6;
+		Lista* milist7;
 
 	public:
 
@@ -45,51 +45,16 @@ namespace Proyecto1HansSempe1083920 {
 	public:
 
 	public:
-		List* milist8;
+		Lista* milist8;
 
 		MyForm2(void)
 		{
 			InitializeComponent();
 			
-			milist = new List();
+			milist = new Lista();
 			milist->count = 0;
 			milist->start = nullptr;
 			milist->end = nullptr;
-
-			milist2 = new List();
-			milist2->count2 = 0;
-			milist2->start2 = nullptr;
-			milist2->end2 = nullptr;
-
-			milist3 = new List();
-			milist3->count3 = 0;
-			milist3->start3 = nullptr;
-			milist3->end3 = nullptr;
-
-			milist4 = new List();
-			milist4->count4 = 0;
-			milist4->start4 = nullptr;
-			milist4->end4 = nullptr;
-
-			milist5 = new List();
-			milist5->count5 = 0;
-			milist5->start5 = nullptr;
-			milist5->end5 = nullptr;
-
-			milist6 = new List();
-			milist6->count6 = 0;
-			milist6->start6 = nullptr;
-			milist6->end6 = nullptr;
-
-			milist7 = new List();
-			milist7->count7 = 0;
-			milist7->start7 = nullptr;
-			milist7->end7 = nullptr;
-
-			milist8 = new List();
-			milist8->count8 = 0;
-			milist8->start8 = nullptr;
-			milist8->end8 = nullptr;
 			
 		}
 
@@ -299,9 +264,9 @@ namespace Proyecto1HansSempe1083920 {
 			// 
 			// txtPath2
 			// 
-			this->txtPath2->Location = System::Drawing::Point(200, 28);
+			this->txtPath2->Location = System::Drawing::Point(420, 28);
 			this->txtPath2->Name = L"txtPath2";
-			this->txtPath2->Size = System::Drawing::Size(638, 20);
+			this->txtPath2->Size = System::Drawing::Size(418, 20);
 			this->txtPath2->TabIndex = 48;
 			// 
 			// importarDatos2
@@ -309,7 +274,7 @@ namespace Proyecto1HansSempe1083920 {
 			this->importarDatos2->BackColor = System::Drawing::Color::White;
 			this->importarDatos2->Font = (gcnew System::Drawing::Font(L"Arial Black", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->importarDatos2->Location = System::Drawing::Point(12, 12);
+			this->importarDatos2->Location = System::Drawing::Point(232, 12);
 			this->importarDatos2->Name = L"importarDatos2";
 			this->importarDatos2->Size = System::Drawing::Size(182, 46);
 			this->importarDatos2->TabIndex = 47;
@@ -415,13 +380,12 @@ namespace Proyecto1HansSempe1083920 {
 		}
 #pragma endregion
 
-
-		private: void ReestablecerMatriz() {
-			dgvMatriz2->Rows->Clear();
-			dgvMatriz2->Columns->Clear();
-			dgvMatriz2->ColumnHeadersVisible = false;
-			dgvMatriz2->RowHeadersVisible = false;
-		};
+private: void ReestablecerMatriz() {
+	dgvMatriz2->Rows->Clear();
+	dgvMatriz2->Columns->Clear();
+	dgvMatriz2->ColumnHeadersVisible = false;
+	dgvMatriz2->RowHeadersVisible = false;
+};
 
 
 		private: System::Void importarDatos2_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -454,470 +418,7 @@ namespace Proyecto1HansSempe1083920 {
 						for (int i = 1; i < archivo_game_Column->Length;)
 						{
 							int j;
-							for (j = 0; j < archivo_game_Line->Length; j++)
-							{
-								if (x_Salto == true)
-								{
-									i++;
-								}
-								if (i == 1)
-								{
-									int temp_Val;
-									if (archivo_game_Line[j] == "B")
-									{
-										temp_Val = 1;
-										milist->InsertAtStart(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Z")
-									{
-										temp_Val = 2;
-										milist->InsertAtStart(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "W")
-									{
-										temp_Val = 3;
-										milist->InsertAtStart(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "R")
-									{
-										temp_Val = 4;
-										milist->InsertAtStart(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Y")
-									{
-										temp_Val = 5;
-										milist->InsertAtStart(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "G")
-									{
-										temp_Val = 6;
-										milist->InsertAtStart(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "P")
-									{
-										temp_Val = 7;
-										milist->InsertAtStart(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "N")
-									{
-										temp_Val = 8;
-										milist->InsertAtStart(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "X")
-									{
-										x_Salto = true;
-									}
 
-								}
-								if (i == 2)
-								{
-									int temp_Val;
-									if (archivo_game_Line[j] == "B")
-									{
-										temp_Val = 1;
-										milist2->InsertAtStart2(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Z")
-									{
-										temp_Val = 2;
-										milist2->InsertAtStart2(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "W")
-									{
-										temp_Val = 3;
-										milist2->InsertAtStart2(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "R")
-									{
-										temp_Val = 4;
-										milist2->InsertAtStart2(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Y")
-									{
-										temp_Val = 5;
-										milist2->InsertAtStart2(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "G")
-									{
-										temp_Val = 6;
-										milist2->InsertAtStart2(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "P")
-									{
-										temp_Val = 7;
-										milist2->InsertAtStart2(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "N")
-									{
-										temp_Val = 8;
-										milist2->InsertAtStart2(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "X")
-									{
-										x_Salto = true;
-									}
-
-								}
-								if (i == 3)
-								{
-									int temp_Val;
-									if (archivo_game_Line[j] == "B")
-									{
-										temp_Val = 1;
-										milist3->InsertAtStart3(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Z")
-									{
-										temp_Val = 2;
-										milist3->InsertAtStart3(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "W")
-									{
-										temp_Val = 3;
-										milist3->InsertAtStart3(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "R")
-									{
-										temp_Val = 4;
-										milist3->InsertAtStart3(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Y")
-									{
-										temp_Val = 5;
-										milist3->InsertAtStart3(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "G")
-									{
-										temp_Val = 6;
-										milist3->InsertAtStart3(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "P")
-									{
-										temp_Val = 7;
-										milist3->InsertAtStart3(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "N")
-									{
-										temp_Val = 8;
-										milist3->InsertAtStart3(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "X")
-									{
-										x_Salto = true;
-									}
-								}
-								if (i == 4)
-								{
-									int temp_Val;
-									if (archivo_game_Line[j] == "B")
-									{
-										temp_Val = 1;
-										milist4->InsertAtStart4(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Z")
-									{
-										temp_Val = 2;
-										milist4->InsertAtStart4(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "W")
-									{
-										temp_Val = 3;
-										milist4->InsertAtStart4(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "R")
-									{
-										temp_Val = 4;
-										milist4->InsertAtStart4(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Y")
-									{
-										temp_Val = 5;
-										milist4->InsertAtStart4(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "G")
-									{
-										temp_Val = 6;
-										milist4->InsertAtStart4(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "P")
-									{
-										temp_Val = 7;
-										milist4->InsertAtStart4(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "N")
-									{
-										temp_Val = 8;
-										milist4->InsertAtStart4(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "X")
-									{
-										x_Salto = true;
-									}
-								}
-								if (i == 5)
-								{
-									int temp_Val;
-									if (archivo_game_Line[j] == "B")
-									{
-										temp_Val = 1;
-										milist5->InsertAtStart5(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Z")
-									{
-										temp_Val = 2;
-										milist5->InsertAtStart5(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "W")
-									{
-										temp_Val = 3;
-										milist5->InsertAtStart5(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "R")
-									{
-										temp_Val = 4;
-										milist5->InsertAtStart5(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Y")
-									{
-										temp_Val = 5;
-										milist5->InsertAtStart5(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "G")
-									{
-										temp_Val = 6;
-										milist5->InsertAtStart5(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "P")
-									{
-										temp_Val = 7;
-										milist5->InsertAtStart5(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "N")
-									{
-										temp_Val = 8;
-										milist5->InsertAtStart5(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "X")
-									{
-										x_Salto = true;
-									}
-
-								}
-								if (i == 6)
-								{
-									int temp_Val;
-									if (archivo_game_Line[j] == "B")
-									{
-										temp_Val = 1;
-										milist6->InsertAtStart6(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Z")
-									{
-										temp_Val = 2;
-										milist6->InsertAtStart6(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "W")
-									{
-										temp_Val = 3;
-										milist6->InsertAtStart6(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "R")
-									{
-										temp_Val = 4;
-										milist6->InsertAtStart6(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Y")
-									{
-										temp_Val = 5;
-										milist6->InsertAtStart6(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "G")
-									{
-										temp_Val = 6;
-										milist6->InsertAtStart6(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "P")
-									{
-										temp_Val = 7;
-										milist6->InsertAtStart6(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "N")
-									{
-										temp_Val = 8;
-										milist6->InsertAtStart6(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "X")
-									{
-										x_Salto = true;
-									}
-								}
-								if (i == 7)
-								{
-									int temp_Val;
-									if (archivo_game_Line[j] == "B")
-									{
-										temp_Val = 1;
-										milist7->InsertAtStart7(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Z")
-									{
-										temp_Val = 2;
-										milist7->InsertAtStart7(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "W")
-									{
-										temp_Val = 3;
-										milist7->InsertAtStart7(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "R")
-									{
-										temp_Val = 4;
-										milist7->InsertAtStart7(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Y")
-									{
-										temp_Val = 5;
-										milist7->InsertAtStart7(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "G")
-									{
-										temp_Val = 6;
-										milist7->InsertAtStart7(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "P")
-									{
-										temp_Val = 7;
-										milist7->InsertAtStart7(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "N")
-									{
-										temp_Val = 8;
-										milist7->InsertAtStart7(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "X")
-									{
-										x_Salto = true;
-									}
-								}
-								if (i == 8)
-								{
-									int temp_Val;
-									if (archivo_game_Line[j] == "B")
-									{
-										temp_Val = 1;
-										milist8->InsertAtStart8(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Z")
-									{
-										temp_Val = 2;
-										milist8->InsertAtStart8(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "W")
-									{
-										temp_Val = 3;
-										milist8->InsertAtStart8(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "R")
-									{
-										temp_Val = 4;
-										milist8->InsertAtStart8(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "Y")
-									{
-										temp_Val = 5;
-										milist8->InsertAtStart8(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "G")
-									{
-										temp_Val = 6;
-										milist8->InsertAtStart8(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "P")
-									{
-										temp_Val = 7;
-										milist8->InsertAtStart8(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "N")
-									{
-										temp_Val = 8;
-										milist8->InsertAtStart8(temp_Val);
-										x_Salto = false;
-									}
-									else if (archivo_game_Line[j] == "X")
-									{
-										x_Salto = true;
-									}
-								}
-								if (i >= 9)
-								{
-									MessageBox::Show("No es valido el archivo seleccionado", "Archivo invalido", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
-									ReestablecerMatriz();
-									break;
-								}
-							}
 						}
 					}
 				}
@@ -930,7 +431,7 @@ namespace Proyecto1HansSempe1083920 {
 					, MessageBoxIcon::Exclamation);
 			}
 
-			
+
 		}
 
 		private: System::Void timer2_Tick(System::Object^ sender, System::EventArgs^ e) {
